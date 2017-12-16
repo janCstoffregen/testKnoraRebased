@@ -592,15 +592,15 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:isInSystemAdminGroup "false"^^xsd:boolean.
 
 #
-# Publication
+# Publishing
 #
 
-<http://data.knora.org/projects/publication> a knora-base:knoraProject;
-	knora-base:projectShortname "publication"^^xsd:string;
-	knora-base:projectLongname "An ontology about publication"^^xsd:string;
-	knora-base:projectDescription "Formal description of publication, its general subclasses, related classes and properties"^^xsd:string;
-	knora-base:projectOntologyGraph "http://www.knora.org/ontology/publication"^^xsd:string;
-	knora-base:projectDataGraph "http://www.knora.org/data/publication"^^xsd:string;
+<http://data.knora.org/projects/Publishing> a knora-base:knoraProject;
+	knora-base:projectShortname "Publishing"^^xsd:string;
+	knora-base:projectLongname "An ontology about Publishing"^^xsd:string;
+	knora-base:projectDescription "Formal description of Publishing, its general subclasses, related classes and properties"^^xsd:string;
+	knora-base:projectOntologyGraph "http://www.knora.org/ontology/Publishing"^^xsd:string;
+	knora-base:projectDataGraph "http://www.knora.org/data/Publishing"^^xsd:string;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -612,7 +612,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
 	knora-base:preferredLanguage "de"^^xsd:string;
 	knora-base:status "true"^^xsd:boolean;
-	knora-base:isInProject <http://data.knora.org/projects/publication>;
+	knora-base:isInProject <http://data.knora.org/projects/Publishing>;
 	knora-base:isInSystemAdminGroup "false"^^xsd:boolean.
 
 #
@@ -745,4 +745,101 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:isInProject <http://data.knora.org/projects/agent>;
 	knora-base:isInSystemAdminGroup "false"^^xsd:boolean.
+
+#
+# Information Carrier
+#
+
+<http://data.knora.org/projects/information-carrier> a knora-base:knoraProject;
+	knora-base:projectShortname "information carrier"^^xsd:string;
+	knora-base:projectLongname "An ontology about information carrier"^^xsd:string;
+	knora-base:projectDescription "Formal description of information carrier, general subclasses, related classes and properties."^^xsd:string;
+	knora-base:projectOntologyGraph "http://www.knora.org/ontology/information-carrier"^^xsd:string;
+	knora-base:projectDataGraph "http://www.knora.org/data/information-carrier"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://data.knora.org/users/hansCools> a knora-base:User;
+	knora-base:userid "hansCools"^^xsd:string;
+	knora-base:familyName "Cools"^^xsd:string;
+	knora-base:givenName "Hans"^^xsd:string;
+	knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+	knora-base:preferredLanguage "de"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:isInProject <http://data.knora.org/projects/information-carrier>;
+	knora-base:isInSystemAdminGroup "false"^^xsd:boolean.
+
+#
+# Catholic Organisation
+#
+
+<http://data.knora.org/projects/catholic-organisation> a knora-base:knoraProject;
+	knora-base:projectShortname "catholic organisation"^^xsd:string;
+	knora-base:projectLongname "An ontology about catholic organisation"^^xsd:string;
+	knora-base:projectDescription "Formal description of catholic organisation, general subclasses, related classes and properties."^^xsd:string;
+	knora-base:projectOntologyGraph "http://www.knora.org/ontology/catholic-organisation"^^xsd:string;
+	knora-base:projectDataGraph "http://www.knora.org/data/catholic-organisation"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://data.knora.org/users/hansCools> a knora-base:User;
+	knora-base:userid "hansCools"^^xsd:string;
+	knora-base:familyName "Cools"^^xsd:string;
+	knora-base:givenName "Hans"^^xsd:string;
+	knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+	knora-base:preferredLanguage "de"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:isInProject <http://data.knora.org/projects/catholic-organisation>;
+	knora-base:isInSystemAdminGroup "false"^^xsd:boolean.
+
+#
+# Philosophy
+#
+
+<http://data.knora.org/projects/philosophy> a knora-base:knoraProject;
+	knora-base:projectShortname "philosophy"^^xsd:string;
+	knora-base:projectLongname "An ontology about philosophy"^^xsd:string;
+	knora-base:projectDescription "Formal description of philosophy, general subclasses, related classes and properties."^^xsd:string;
+	knora-base:projectOntologyGraph "http://www.knora.org/ontology/philosophy"^^xsd:string;
+	knora-base:projectDataGraph "http://www.knora.org/data/philosophy"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://data.knora.org/users/hansCools> a knora-base:User;
+	knora-base:userid "hansCools"^^xsd:string;
+	knora-base:familyName "Cools"^^xsd:string;
+	knora-base:givenName "Hans"^^xsd:string;
+	knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+	knora-base:preferredLanguage "de"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:isInProject <http://data.knora.org/projects/philosophy>;
+	knora-base:isInSystemAdminGroup "false"^^xsd:boolean.
+
+#
+# Language
+#
+
+<http://data.knora.org/projects/language> a knora-base:knoraProject;
+	knora-base:projectShortname "language"^^xsd:string;
+	knora-base:projectLongname "An ontology about language"^^xsd:string;
+	knora-base:projectDescription "Formal description of language, general subclasses, related classes and properties."^^xsd:string;
+	knora-base:projectOntologyGraph "http://www.knora.org/ontology/language"^^xsd:string;
+	knora-base:projectDataGraph "http://www.knora.org/data/language"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://data.knora.org/users/hansCools> a knora-base:User;
+	knora-base:userid "hansCools"^^xsd:string;
+	knora-base:familyName "Cools"^^xsd:string;
+	knora-base:givenName "Hans"^^xsd:string;
+	knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+	knora-base:preferredLanguage "de"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:isInProject <http://data.knora.org/projects/language>;
+	knora-base:isInSystemAdminGroup "false"^^xsd:boolean.
+
 

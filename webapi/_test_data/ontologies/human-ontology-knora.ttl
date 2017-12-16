@@ -1,58 +1,58 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-# @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-# @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix unicore: <http://purl.uniprot.org/core/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.knora.org/ontology/event#>.
+@prefix agent: <http://www.knora.org/ontology/agent#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 @prefix human: <http://www.knora.org/ontology/human#>.
 
 <http://www.knora.org/ontology/human>
-	a owl:Ontology.
-#	dct:title "An ontology about human"@en;
-#	dct:description """Formal description of a human, general subclasses, related classes and properties."""@en;
-#	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
+	a owl:Ontology;
+	dct:title "An ontology about human"@en;
+	dct:description """Formal description of a human, general subclasses, related classes and properties."""@en;
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
 
 #
 # CLASSES
 #
 
 human:Human
-	a owl:Class; # , unicore:Taxon;
+	a owl:Class;
 	rdfs:label "human"@en, "Mensch"@de, "homme"@fr, "huomo"@it;
 	rdfs:comment """Member of the subspecies Homo sapiens sapiens."""@en;
-#	skos:note """A human lives but is not necessarily born; one can speak about a human embryo or foetus.""";
+	skos:note """A human lives but is not necessarily born; one can speak about a human embryo or foetus.""";
 	unicore:scientificName """Homo sapiens sapiens"""@en;
-	unicore:rank unicore:Subspecies;
-	rdfs:subClassOf knora-base:Resource, <http://purl.uniprot.org/taxonomy/9606>. # rdfs:subClassOf foaf:Agent, species Homo sapiens, agent:Agent
+	unicore:rank unicore:Subspecies; # species Homo sapiens
+	rdfs:subClassOf agent:Agent, <http://purl.uniprot.org/taxonomy/9606>. # rdfs:subClassOf species Homo sapiens
 
 human:Person
 	a owl:Class;
 	rdfs:label "person"@en, "Person"@de, "personne"@fr, "persona"@it;
 	rdfs:comment """A real born living human."""@en;
-#	skos:note """A foaf:Person class member is born, but can be alive or dead, real or imaginary. In this more restricted meaning a person can do things during life and can be talked about after dead, having done things during life. An imaginary person is a thing that can have every conceivable property, very unlike a real person."""@en;
+	skos:note """A foaf:Person class member is born, but can be alive or dead, real or imaginary. In this more restricted meaning a person can do things during life and can be talked about after dead, having done things during life. An imaginary person is a thing that can have every conceivable property, very unlike a real person."""@en;
 	rdfs:subClassOf human:Human, frbroo:F10_Person, foaf:Person, [ # frbroo:F10_Person rdfs:subClassOf cidoc:E21_Person rdfs:subClassOf cidoc:E39_Actor
-#		a owl:Restriction; owl:onProperty :hasBiologicalGender; owl:someValuesFrom :BiologicalGender], [
-		a owl:Restriction; owl:onProperty human:hasBiologicalGender; owl:maxCardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasBiologicalGenderValue; owl:maxCardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasBirthDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasDeathDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasBiologicalSex; owl:maxCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasBiologicalSexValue; owl:maxCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasFamilyName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasGivenName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasBirthDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasDeathDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty :hasRole; owl:someValuesFrom :Role], [
 		a owl:Restriction; owl:onProperty human:hasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:isMemberOfOrganization; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:isMemberOfOrganizationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasFloruit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasFloruitValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -62,11 +62,23 @@ human:PersonLike # can also be :Fantasy
 	rdfs:comment """Person like resource having additional non-human features."""@en.
 #	skos:note """E.g. Jesus is for a believer a person having also non-human features, i.e. he is in the intersection of human:Person and human:PersonLike."""@en;
 
+human:Group
+	a owl:Class;
+	rdfs:label "group of persons"@en;
+	rdfs:comment """Group of persons."""@en;
+	rdfs:subClassOf agent:Group, cidoc:E74_Group. # cidoc:E74_Group rdfs:subClassOf cidoc:E39_Actor
+
+human:Organization
+	a owl:Class;
+	rdfs:label "organization"@en;
+	rdfs:comment """Organized group of persons."""@en;
+	skos:note """An organization can be a legal person."""@en;
+	rdfs:subClassOf agent:Organization.
 
 human:Action
 	a owl:Class;
 	rdfs:label "action"@en, "Aktion"@de;
-	rdfs:comment """Action with at least one human as agent."""@en;
+	rdfs:comment """Action with a human as agent."""@en;
 	rdfs:subClassOf event:Action.
 
 human:Life
@@ -75,36 +87,35 @@ human:Life
 	rdfs:comment """Life of a human from birth until death."""@en;
 #	skos:note """Considered as an action wherein a person is an agent."""@en;
 #	skos:note """No satisfying biological description of onset of a human life."""@en;
-	rdfs:subClassOf event:Action, event:Existence, knora-base:Resource.
+	rdfs:subClassOf event:Action, event:Existence.
 
-human:BiologicalGender
+human:BiologicalSex
 	a owl:Class;
-	rdfs:label "biological gender"@en, "biologisches Geschlecht"@de;
-	rdfs:comment """Biological gender of a human."""@en;
-	rdfs:subClassOf knora-base:Resource.
-#	owl:disjointUnionOf (human:FemaleGender human:IntersexualGender human:MaleGender).
+	rdfs:subClassOf human:Action, event:Creating
+#		, [
+#		a owl:Restriction; owl:onProperty agent:hasAgent; owl:someValuesFrom agent:Creator]
+		.
 
-human:FemaleGender
+human:Creation
 	a owl:Class;
-	rdfs:label "female"@en, "weiblich"@de;
-	rdfs:comment """Being of a human female gender."""@en;
-#	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:BiologicalGender.
-
-human:MaleGender
-	a owl:Class;
-	rdfs:label "male"@en, "männlich"@de;
-	rdfs:comment """Being of a human male gender."""@en;
-#	skos:note """In adulthood producing spermatozoa for fertilizing female ova."""@en;
-#	rdfs:isDefinedBy <http://www.nie-ine.ch/ontology/human#>;
-	rdfs:subClassOf human:BiologicalGender.
+	rdfs:label "creation"@en, "Kreation"@de;
+	rdfs:comment """Something created by a person."""@en;
+	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
+		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasCreating; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasCreatingValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty human:hasCreatingPeriod; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty human:hasCreatingPeriodValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 human:Role
 	a owl:Class;
 	rdfs:label "role"@en, "Rolle"@de;
 	rdfs:comment """A role a person has as a social entity."""@en;
-	rdfs:subClassOf knora-base:Resource. # , [
-#		a owl:Restriction; owl:onProperty agent:roleOf; owl:allValuesFrom human:Person].
+	rdfs:subClassOf knora-base:Resource.
 
 human:Occupation
 	a owl:Class;
@@ -118,52 +129,71 @@ human:OccupationalRole
 	rdfs:comment """Role of a person in an occupation."""@en;
 	rdfs:subClassOf human:Role.
 
-human:Floruit # to do: move to agent
+human:Owner #*
+	a owl:Class;
+	rdfs:label "owner"@en, "Besitzer"@de;
+	rdfs:comment """Role of a person having a property."""@en;
+	rdfs:subClassOf human:Role.
+
+human:Floruit #* move to agent?
 	a owl:Class;
 	rdfs:label "floruit"@en, "Floruit"@de;
-	rdfs:comment """Period during which a person lived or a school or movement was most active or flourishing."""@en;
-	rdfs:subClassOf event:Action, knora-base:Resource.
-
-human:Creating
-	a owl:Class;
-	rdfs:label "creating"@en, "Kreierung"@de;
-	rdfs:comment """Action by a person of bringing something into existence."""@en;
-	rdfs:subClassOf human:Action, event:Creating
-#		, [
-#		a owl:Restriction; owl:onProperty agent:hasAgent; owl:someValuesFrom agent:Creator]
+	rdfs:comment """Period during which a person or an organization was most active or flourishing."""@en;
+	rdfs:subClassOf event:Action, knora-base:Resource # , [
+#		a owl:Restriction; owl:onProperty event:hasStartDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty event:hasEndDate; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
-human:Creation
+human:Ability
 	a owl:Class;
-	rdfs:label "creation"@en, "Kreation"@de;
-	rdfs:comment """Something created by a person."""@en;
-	rdfs:subClassOf event:Output, [ # cidoc:E71_Man-Made_Thing, [
-		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasCreatingPeriod; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasCreatingPeriodValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:label "ability"@en, "Fähigkeit"@de;
+	rdfs:comment """Possibility of a person to do something."""@en;
+	rdfs:subClassOf knora-base:Resource.
+
+human:CriticalThoughtMethod
+	a owl:Class;
+	rdfs:label "critical thought method"@en, "Methode des kritischen Denkens"@de;
+	rdfs:comment """Objective analysis of facts to form a judgment."""@en;
+	rdfs:subClassOf knora-base:Resource.
 
 #
 # PROPERTIES
 #
 
+human:hasBirthDate
+	a owl:ObjectProperty;
+	rdfs:label "has birth date"@en, "hat Geburtsdatum"@de;
+	rdfs:comment """Relating a person to a date of birth (as object) of that person."""@en;
+#	skos:note """It is possible to find different birth dates in different historical sources; an overall certainty period can be calculated."""@en;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:DateValue.
+
+human:hasDeathDate
+	a owl:ObjectProperty;
+	rdfs:label "has death date"@en, "hat Todesdatum"@de;
+	rdfs:comment """Relating a person to a date of death (as object) of that person."""@en;
+#	skos:note """It is possible to find different death dates in different historical sources; an overall certainty period can be calculated."""@en;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:DateValue.
+
 human:actsIn
 	a owl:ObjectProperty;
 	rdfs:label "acts in"@en, "agiert in"@de;
-	rdfs:comment """Relating a person to an action s/he is in."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkTo; # SPO agent:actsIn
-#	knora-base:subjectClassConstraint human:Person;
+	rdfs:comment """Relating a human to an action the human is in."""@en;
+	rdfs:domain human:Human;
+	rdfs:range human:Action;
+	rdfs:subPropertyOf agent:actsIn;
+	knora-base:subjectClassConstraint human:Human;
 	knora-base:objectClassConstraint human:Action.
 
 human:actsInValue
 	a owl:ObjectProperty;
 	rdfs:label "acts in - statement"@en, "agiert in - Festlegung"@de;
-	rdfs:comment """Relating a person to a reification statement of the relation between the person and an action s/he is in."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
-#	knora-base:subjectClassConstraint human:Person;
+	rdfs:comment """Relating a human to a reification statement of the relation between the human and an action the human is in."""@en;
+	rdfs:subPropertyOf agent:actsInValue;
+	knora-base:subjectClassConstraint human:Human;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 human:hasLife
@@ -171,6 +201,8 @@ human:hasLife
 	rdfs:label "has life"@en, "hat Leben"@de;
 	rdfs:comment """Relating a person to her/his life."""@en;
 	rdfs:subPropertyOf human:actsIn;
+	rdfs:domain human:Human;
+	rdfs:range human:Life;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint human:Life.
 
@@ -182,44 +214,28 @@ human:hasLifeValue
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-human:hasBiologicalGender
+human:hasBiologicalSex
 	a owl:ObjectProperty;
-	rdfs:label "has biological gender"@en, "hat biologisches Geschlecht"@de;
-	rdfs:comment """Relating a human to a biological gender."""@en;
+	rdfs:label "has biological sex"@en, "hat biologisches Geschlecht"@de;
+	rdfs:comment """Relating a human to a biological sex of that human."""@en;
+	rdfs:domain human:Human;
+	rdfs:range human:BiologicalSex;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint human:Human;
-	knora-base:objectClassConstraint human:BiologicalGender.
+	knora-base:objectClassConstraint human:BiologicalSex.
 
-human:hasBiologicalGenderValue
+human:hasBiologicalSexValue
 	a owl:ObjectProperty;
-	rdfs:label "has biological gender - statement"@en, "hat biologisches Geschlecht - Festlegung"@de;
-	rdfs:comment """Relating a person to a reification statement of the relation between the person and her/his biological gender."""@en;
+	rdfs:label "has biological sex - statement"@en, "hat biologisches Geschlecht - Festlegung"@de;
+	rdfs:comment """Relating a human to a reification statement of the relation between the human and a biological sex of that human."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint human:Human;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-human:hasBirthDate
-	a owl:ObjectProperty;
-	rdfs:label "has birth date"@en, "hat Geburtsdatum"@de;
-	rdfs:comment """Relating a person to her/his date of birth (as object)."""@en;
-#	skos:note """It is possible to find different birth dates in different historical sources; an overall certainty period can be calculated."""@en;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint human:Person;
-	knora-base:objectClassConstraint knora-base:DateValue.
-
-human:hasDeathDate
-	a owl:ObjectProperty;
-	rdfs:label "has death date"@en, "hat Todesdatum"@de;
-	rdfs:comment """Relating a person to her/his date of death (as object)."""@en;
-#	skos:note """It is possible to find different death dates in different historical sources; an overall certainty period can be calculated."""@en;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint human:Person;
-	knora-base:objectClassConstraint knora-base:DateValue.
-
 human:hasName
 	a owl:ObjectProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
-	rdfs:comment """Relating a person to her/his name (as object)."""@en;
+	rdfs:comment """Relating a person to a name (as object) of that person."""@en;
 	rdfs:subPropertyOf text:hasName;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -228,7 +244,7 @@ human:hasName
 human:hasFamilyName
 	a owl:ObjectProperty;
 	rdfs:label "has family name"@en, "hat Nachname"@de;
-	rdfs:comment """Relating a person to her/his family name (as object)."""@en;
+	rdfs:comment """Relating a person to a family name (as object) of that person."""@en;
 #	skos:note """Further restriction given along specific law; e.g. a person can have her/his family name legally changed."""@en;
 	rdfs:subPropertyOf human:hasName;
 	knora-base:subjectClassConstraint human:Person;
@@ -238,7 +254,7 @@ human:hasFamilyName
 human:hasGivenName
 	a owl:ObjectProperty;
 	rdfs:label "has given name"@en, "hat Vorname"@de;
-	rdfs:comment """Relating a person to her/his given name (as object)."""@en;
+	rdfs:comment """Relating a person to a given name (as object) of that person."""@en;
 #	skos:note """Further restriction given along specific law; e.g. a person can have her/his given name legally changed."""@en;
 	rdfs:subPropertyOf human:hasName;
 	knora-base:subjectClassConstraint human:Person;
@@ -248,7 +264,7 @@ human:hasGivenName
 human:hasPreferredName
 	a owl:ObjectProperty;
 	rdfs:label "has preferred name"@en, "hat bevorzugter Name"@de;
-	rdfs:comment """Relating a person to her/his preferred name (as object)."""@en;
+	rdfs:comment """Relating a person to a preferred name (as object) of that person."""@en;
 	rdfs:subPropertyOf human:hasName, text:hasPreferredName;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -275,7 +291,9 @@ human:hasDescription
 human:hasRole
 	a owl:ObjectProperty;
 	rdfs:label "has role"@en, "hat Rolle"@de;
-	rdfs:comment """Relating a person to a role s/he has."""@en;
+	rdfs:comment """Relating a person to a role the person has."""@en;
+	rdfs:domain human:Person;
+	rdfs:range human:Role;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint human:Role.
@@ -283,7 +301,7 @@ human:hasRole
 human:hasRoleValue
 	a owl:ObjectProperty;
 	rdfs:label "has role - statement"@en, "hat Rolle - Festlegung"@de;
-	rdfs:comment """Relating a person to a reification statement of the relation between the person and a role s/he has."""@en;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and a role the person has."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -291,7 +309,9 @@ human:hasRoleValue
 human:hasOccupationalRole
 	a owl:ObjectProperty;
 	rdfs:label "has occupational role"@en, "hat Tätigkeitsrolle"@de;
-	rdfs:comment """Relating a person to a current occupational role s/he has."""@en;
+	rdfs:comment """Relating a person to a current occupational role the person has."""@en;
+	rdfs:domain human:Person;
+	rdfs:range human:OccupationalRole;
 	rdfs:subPropertyOf human:hasRole;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint human:OccupationalRole.
@@ -299,15 +319,35 @@ human:hasOccupationalRole
 human:hasOccupationalRoleValue
 	a owl:ObjectProperty;
 	rdfs:label "has occupational role - statement"@en, "hat Tätigkeitsrolle - Festlegung"@de;
-	rdfs:comment """Relating a person to a reification statement of the relation between the person and a current occupational role s/he has."""@en;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and a current occupational role the person has."""@en;
 	rdfs:subPropertyOf human:hasRoleValue;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:isMemberOfOrganization
+	a owl:ObjectProperty;
+	rdfs:label "is member of"@en, "ist Mitglied von"@de;
+	rdfs:comment """Relating a person to an organization the person is a member of."""@en;
+	rdfs:domain human:Person;
+	rdfs:range human:Organization;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint human:Organization.
+
+human:isMemberOfOrganizationValue
+	a owl:ObjectProperty;
+	rdfs:label "is member of - statement"@en, "ist Mitglied von - Festlegung"@de;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and an organization the person is a member of."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
 human:hasFloruit
 	a owl:ObjectProperty;
 	rdfs:label "has floruit"@en, "hat Floruit"@de;
-	rdfs:comment """Relating a person to her/his floruit."""@en;
+	rdfs:comment """Relating a person to a floruit the person has."""@en;
+	rdfs:domain human:Person;
+	rdfs:range human:Floruit;
 	rdfs:subPropertyOf human:actsIn;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint human:Floruit.
@@ -315,7 +355,7 @@ human:hasFloruit
 human:hasFloruitValue
 	a owl:ObjectProperty;
 	rdfs:label "has floruit - statement"@en, "hat Floruit - Festlegung"@de;
-	rdfs:comment """Relating a person to a reification statement of the relation between the person and her/his floruit."""@en;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and a floruit the person has."""@en;
 	rdfs:subPropertyOf human:actsInValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
@@ -323,13 +363,29 @@ human:hasFloruitValue
 human:hasCreationDate
 	a owl:ObjectProperty;
 	rdfs:label "has creation date"@en, "hat Kreationsdatum"@de;
-	rdfs:comment "Relating a creation by a person to a date it was created on."@en;
+	rdfs:comment """Relating a creation by a person to a date it was created on."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint human:Creation; # owl:propertyChainAxiom (event:isOutputOf event:hasEndDate)
 	knora-base:objectClassConstraint knora-base:DateValue;
 	salsah-gui:guiElement salsah-gui:Date.
 
-human:hasCreatingPeriod
+human:hasCreating
+	a owl:ObjectProperty;
+	rdfs:label "has creating"@en, "hat Kreierung"@de;
+	rdfs:comment """Relating a creation by a person to the creating thereof."""@en;
+	rdfs:subPropertyOf event:isOutputOf;
+	knora-base:subjectClassConstraint human:Creation;
+	knora-base:objectClassConstraint human:Creating.
+
+human:hasCreatingValue
+	a owl:ObjectProperty;
+	rdfs:label "has creating - statement"@en, "hat Kreierungs - Festlegung"@de;
+	rdfs:comment "Relating a creation by a person to a reification statement of the relation between the creation and the creating thereof."@en;
+	rdfs:subPropertyOf event:isOutputOfValue;
+	knora-base:subjectClassConstraint human:Creation;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:hasCreatingPeriod # * to change for Raeber
 	a owl:ObjectProperty;
 	rdfs:label "has creating period"@en, "hat Kreierungsperiode"@de;
 	rdfs:comment "Relating a creation by a person to the creating thereof."@en;
@@ -337,7 +393,7 @@ human:hasCreatingPeriod
 	knora-base:subjectClassConstraint human:Creation;
 	knora-base:objectClassConstraint human:Creating.
 
-human:hasCreatingPeriodValue
+human:hasCreatingPeriodValue # * to change for Raeber
 	a owl:ObjectProperty;
 	rdfs:label "has creating period - statement"@en, "hat Kreierungsperiode - Festlegung"@de;
 	rdfs:comment "Relating a creation by a person to a reification statement of the relation between the creation and the creating thereof."@en;
@@ -349,6 +405,15 @@ human:hasModificationDate
 	a owl:ObjectProperty;
 	rdfs:label "has modification date"@en, "hat Änderungsdatum"@de;
 	rdfs:comment """Relating a human creation to its modification date."""@en;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint human:Creation;
+	knora-base:objectClassConstraint knora-base:DateValue;
+	salsah-gui:guiElement salsah-gui:Date.
+
+human:hasModificationDateText # * to change for Raeber
+	a owl:ObjectProperty;
+	rdfs:label "has modification date"@en, "hat Änderungsdatum"@de;
+	rdfs:comment """Relating a human creation to its modification date as text."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint human:Creation;
 	knora-base:objectClassConstraint knora-base:TextValue;

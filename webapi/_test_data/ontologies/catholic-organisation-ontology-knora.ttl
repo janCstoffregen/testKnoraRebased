@@ -1,0 +1,116 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix event: <http://www.knora.org/ontology/event#>.
+@prefix human: <http://www.knora.org/ontology/human#>.
+@prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
+@prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
+@prefix cathorg: <http://www.knora.org/ontology/catholic-organisation#>.
+
+<http://www.knora.org/ontology/catholic-organisation>
+	a owl:Ontology;
+	dct:title "An ontology about catholic organisation"@en;
+	dct:description """Formal description of catholic organisation, general subclasses, related classes, properties, and instances."""@en;
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Prof. Dr. Ueli Zahnd, History of Christianity, University of Basel, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+cathorg:CatholicOrganisation
+	a owl:Class;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "catholic organization"@en;
+	rdfs:comment """Organisation following a catholic belief."""@en; # considering an organisation as agent, able to follow a belief
+	rdfs:subClassOf human:Organization.
+
+cathorg:Order
+	a owl:Class;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "catholic order"@en;
+	rdfs:comment """Catholic organisation whose member is male and celibatarian, founded... ."""@en; #*
+	rdfs:subClassOf cathorg:CatholicOrganisation.
+
+#
+# INSTANCES
+#
+
+cathorg:AugustinianFriars
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Ordo Fratrum Sancti Augustini"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:Benedictines
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Ordo Sancti Benedicti"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:Carmelites
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Ordo Sancti Benedicti"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:Carthusians
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Ordo Sancti Benedicti"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:Cistercians
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Ordo Cisterciensis"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:ConventualFranciscans
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Ordo Fratrum Minorum Conventualium"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:Dominicans
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Ordo Fratrum Praedicatorum"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:Franciscans
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Ordo Fratrum Minorum"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:Jesuits
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Societas Iesu"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:ObservantFranciscans
+	a owl:Class, cathorg:Order;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "Ordo Fratrum Minorum Observantiae"@en;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
+
+cathorg:SecularClergy
+	a owl:Class;
+#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:label "secular clergy"@en;
+	rdfs:comment """Person following a catholic belief, not belonging to a catholic institute."""@en; #*
+	rdfs:subClassOf knora-base:Resource.
