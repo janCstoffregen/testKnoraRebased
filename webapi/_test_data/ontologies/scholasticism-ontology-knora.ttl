@@ -49,10 +49,7 @@ schola:Reportator
 	a owl:Class;
 	rdfs:label "reportator"@la, "reportator"@en, "Reportator"@de;
 	rdfs:comment """Role of a scholastic student registering the content of a lesson."""@en; #* also secretary of lecturer?
-	rdfs:subClassOf schola:Role, [
-		a owl:Restriction; owl:onProperty schola:hasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-schola:Scholastic
-
+	rdfs:subClassOf schola:Role.
 
 schola:Commentary
 	a owl:Class;
@@ -82,7 +79,8 @@ schola:Commentary
 #		a owl:Restriction; owl:onProperty text:hasRedactorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 #		a owl:Restriction; owl:onProperty human:hasCreating; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty human:hasCreatingValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [		.
+#		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		.
 
 schola:CommentaryMethod #* stage?, RP
 	a owl:Class;

@@ -45,7 +45,7 @@ kuno-raeber:Text
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasEdition; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasEditionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty human:hasModificationDateTime; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty work:isPublishedOnline; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
 kuno-raeber:Poem

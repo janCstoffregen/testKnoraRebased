@@ -39,74 +39,74 @@ cathorg:Order
 #
 
 cathorg:AugustinianFriars
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Ordo Fratrum Sancti Augustini"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:Benedictines
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Ordo Sancti Benedicti"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:Carmelites
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Ordo Sancti Benedicti"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:Carthusians
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Ordo Sancti Benedicti"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:Cistercians
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Ordo Cisterciensis"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:ConventualFranciscans
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Ordo Fratrum Minorum Conventualium"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:Dominicans
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Ordo Fratrum Praedicatorum"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:Franciscans
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Ordo Fratrum Minorum"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:Jesuits
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Societas Iesu"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:ObservantFranciscans
-	a owl:Class, cathorg:Order;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "Ordo Fratrum Minorum Observantiae"@en;
 	rdfs:comment """."""@en; #*
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf cathorg:Order, knora-base:Resource.
 
 cathorg:SecularClergy
 	a owl:Class;

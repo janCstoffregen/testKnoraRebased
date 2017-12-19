@@ -8,6 +8,7 @@
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.knora.org/ontology/event#>.
 @prefix human: <http://www.knora.org/ontology/human#>.
+@prefix lang: <http://www.knora.org/ontology/language#>.
 @prefix work: <http://www.knora.org/ontology/work#>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 @prefix publish: <http://www.knora.org/ontology/publishing#>.
@@ -66,7 +67,7 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:isInDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
 #		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty publish:hasPublicationNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger]
@@ -239,8 +240,8 @@ text:DiaryEntry
 	rdfs:label "diary entry"@en, "Tagebucheintrag"@de;
 	rdfs:comment """Periodical, usually daily description of a personal experience or observation written in a diary."""@en;
 	rdfs:subClassOf text:Expression, [
-		a owl:Restriction; owl:onProperty infocar:isInDiary; owl:cardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:isInDiaryValue; owl:cardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInDiary; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isInDiaryValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasDiaryEnteringDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:LetterExpression

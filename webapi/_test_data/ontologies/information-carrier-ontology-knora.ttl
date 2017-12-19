@@ -15,10 +15,10 @@
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 
 <http://www.knora.org/ontology/information-carrier>
-	a owl:Ontology.
+	a owl:Ontology;
 	dct:title "An ontology about information carrier"@en;
 	dct:description """Formal description of information carrier in broadest sense, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -112,7 +112,7 @@ infocar:NoteCarrier
 	a owl:Class;
 	rdfs:label "note carrier"@en,"Notizträger"@de;
 	rdfs:comment """Carrier whereon notes are written, e.g. a first registration of thoughts."""@en;
-	rdfs:subClassOf infocar:Carrier. # frbroo:F4_Manifestation_Singleton.
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
 infocar:Notebook
 	a owl:Class;
@@ -124,13 +124,13 @@ infocar:Typescript
 	a owl:Class;
 	rdfs:label "typescript"@en, "Typoskript"@de;
 	rdfs:comment """Carrier of a typewritten text expression."""@en;
-	rdfs:subClassOf infocar:Carrier. # frbroo:F4_Manifestation_Singleton.
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
 infocar:Transcript
 	a owl:Class;
 	rdfs:label "transcript"@en, "Abschrift"@de;
 	rdfs:comment """Carrier of a reproduced text by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
-	rdfs:subClassOf infocar:Carrier. # frbroo:F4_Manifestation_Singleton.
+	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
 infocar:Diary
 	a owl:Class;

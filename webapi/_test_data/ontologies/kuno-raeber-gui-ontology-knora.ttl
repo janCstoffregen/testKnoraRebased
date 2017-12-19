@@ -22,6 +22,7 @@ kuno-raeber-gui:Poem
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasPoemTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasPoemText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:isOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasPageNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:isFinalVersion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasSameEditionAs; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -79,6 +80,14 @@ kuno-raeber-gui:isOnPage
 	a owl:ObjectProperty;
 	rdfs:label "is on page"@en, "ist auf Seite"@de;
 	rdfs:comment """Relating a poem by Kuno Raeber to a carrier page it is on."""@en;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
+	knora-base:objectClassConstraint knora-base:TextValue.
+
+kuno-raeber-gui:hasPageNumber
+	a owl:ObjectProperty;
+	rdfs:label "has page number"@en, "hat Seitennummer"@de;
+	rdfs:comment """Relating a poem by Kuno Raeber to the number of a page it is on."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
 	knora-base:objectClassConstraint knora-base:TextValue.

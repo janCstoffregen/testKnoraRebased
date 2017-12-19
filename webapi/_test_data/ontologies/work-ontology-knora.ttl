@@ -18,7 +18,7 @@
 @prefix work: <http://www.knora.org/ontology/work#>.
 
 <http://www.knora.org/ontology/work>
-	a owl:Ontology.
+	a owl:Ontology;
 	dct:title "An ontology about work as intellectual product"@en;
 	dct:description """Formal description of work as intellectual product, its general subclasses, related classes and properties, as described in the ontology Functional Requirements for Bibliographic Records, object oriented."""@en;
 	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
@@ -49,7 +49,7 @@ work:Expression
 	rdfs:comment """Realisation of an individual work in the form of an identifiable immaterial object, such as a text, poem, joke, musical or choreographic notation, movement pattern, sound pattern, image, multimedia object, or any combination of such forms that have objectively recognisable structures."""@en;
 	rdfs:comment """See http://iflastandards.info/ns/fr/frbr/frbroo/F2_Expression and http://iflastandards.info/ns/fr/frbr/frbroo/F22_Self-Contained_Expression."""@en;
 	rdfs:subClassOf human:Creation, frbroo:F22_Self-Contained_Expression, [
-*		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingState; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublishingStateValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

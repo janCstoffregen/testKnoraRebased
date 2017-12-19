@@ -14,11 +14,11 @@
 @prefix event: <http://www.knora.org/ontology/event#>.
 
 <http://www.knora.org/ontology/event>
-	a owl:Ontology.
-#	dct:title "An ontology about event"@en;
-#	dct:description """Formal description of event, general subclasses such as action, related classes and properties."""@en;
-#	skos:note """Basic model is a space-time thing, which can be described in different levels of abstraction, mostly with input and output, with a beginning and end, wherein a thing can change and/or act, in a certain way."""@en;
-#	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	a owl:Ontology;
+	dct:title "An ontology about event"@en;
+	dct:description """Formal description of event, general subclasses such as action, related classes and properties."""@en;
+	skos:note """Basic model is a space-time thing, which can be described in different levels of abstraction, mostly with input and output, with a beginning and end, wherein a thing can change and/or act, in a certain way."""@en;
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -48,13 +48,17 @@ event:Input
 	a owl:Class;
 	rdfs:label "input"@en, "Input"@de;
 	rdfs:comment """Precondition to a change in a process."""@en;
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf knora-base:Resource, [
+		a owl:Restriction; owl:onProperty event:event:isInputOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty event:event:isInputOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 event:Output
 	a owl:Class;
 	rdfs:label "output"@en, "Output"@de;
 	rdfs:comment """Consequence of a change in a process."""@en;
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf knora-base:Resource, [
+		a owl:Restriction; owl:onProperty event:isOutputOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty event:isOutputOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 event:Action
 	a owl:Class;

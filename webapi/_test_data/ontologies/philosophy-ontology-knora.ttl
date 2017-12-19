@@ -35,36 +35,36 @@ philo:Philosophy
 #
 
 philo:Albertism
-	a owl:Class, philo:Philosophy;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/philosophy#>;
 	rdfs:label "Albertism"@en;
 	rdfs:comment """Theological ideas of Albertus Magnus, 13th-century German Scholastic philosopher."""@en;
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf philo:Philosophy, knora-base:Resource.
 
 philo:Humanism
-	a owl:Class, philo:Philosophy;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/philosophy#>;
 	rdfs:label "Humanism"@en;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf philo:Philosophy, knora-base:Resource.
 
 philo:Nominalism
-	a owl:Class, philo:Philosophy;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/philosophy#>;
 	rdfs:label "Nominalism"@en;
 	rdfs:comment """Phylosophical doctrine stating that only individual things exist."""@en;
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf philo:Philosophy, knora-base:Resource.
 
 philo:Scotism
-	a owl:Class, philo:Philosophy;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/philosophy#>;
 	rdfs:label "Scotism"@en;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf philo:Philosophy, knora-base:Resource.
 
 philo:Thomism
-	a owl:Class, philo:Philosophy;
+	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/philosophy#>;
 	rdfs:label "Thomism"@en;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:subClassOf philo:Philosophy, knora-base:Resource.
