@@ -73,11 +73,23 @@ work:Expression
 
 # to do: work:PolyAuthorExpression
 
+work:Version
+	a owl:Class;
+	rdfs:label "version"@en, "Version"@de;
+	rdfs:comment """Version of an expression, e.g. a text, picture or plan."""@en;
+	rdfs:subClassOf work:Expression.
+
 work:Draft
 	a owl:Class;
 	rdfs:label "draft"@en, "Entwurf"@de;
-	rdfs:comment """Developmental expression of something, e.g. a text, picture or plan."""@en;
-	rdfs:subClassOf work:Expression.
+	rdfs:comment """Developmental expression."""@en;
+	rdfs:subClassOf work:Version.
+
+work:FinalVersion
+	a owl:Class;
+	rdfs:label "Final version"@en, "Endfassung"@de;
+	rdfs:comment """Last version of an expression as intended by the author."""@en;
+	rdfs:subClassOf work:Version.
 
 #
 # PROPERTIES

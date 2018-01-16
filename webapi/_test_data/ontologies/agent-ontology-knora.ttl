@@ -38,13 +38,13 @@ agent:Group
 	rdfs:comment """Group of agents."""@en;
 	rdfs:subClassOf agent:Agent, foaf:Group.
 
-agent:Organization
+agent:Organisation
 	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/agent#>;
-	rdfs:label "organization"@en;
+	rdfs:label "Organisation"@en;
 	rdfs:comment """Organized group of agents."""@en;
-#	skos:note """An organization can be a legal person."""@en;
-	rdfs:subClassOf agent:Agent, foaf:Organization;
+#	skos:note """An Organisation can be a legal person."""@en;
+	rdfs:subClassOf agent:Agent, foaf:Organisation;
 	owl:disjointWith foaf:Person.
 
 agent:Role
@@ -62,12 +62,12 @@ agent:GroupRole
 	rdfs:comment """Role of a group."""@en;
 	rdfs:subClassOf agent:Role. #, [a owl:Restriction; owl:onProperty agent:rolePlayedBy; owl:allValuesFrom agent:Group].
 
-agent:OrganizationRole
+agent:OrganisationRole
 	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/agent#>;
-	rdfs:label "organization role"@en;
-	rdfs:comment """Role of an organization."""@en;
-	rdfs:subClassOf agent:Role. #, [a owl:Restriction; owl:onProperty agent:rolePlayedBy; owl:allValuesFrom foaf:Organization].
+	rdfs:label "Organisation role"@en;
+	rdfs:comment """Role of an Organisation."""@en;
+	rdfs:subClassOf agent:Role. #, [a owl:Restriction; owl:onProperty agent:rolePlayedBy; owl:allValuesFrom foaf:Organisation].
 
 agent:User
 	a owl:Class;

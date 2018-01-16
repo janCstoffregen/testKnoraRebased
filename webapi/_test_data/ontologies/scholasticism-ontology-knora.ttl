@@ -13,7 +13,7 @@
 	a owl:Ontology;
 	dct:title "An ontology about Scholasticism"@en;
 	dct:description """Formal description of elements in Scholasticism."""@en;
-	dct:creator "Hans Cools, software developer, NIE, University of Basel, Switzerland"@en;
+	dct:creator "Hans Cools, MD, software developer, NIE, University of Basel, Switzerland"@en;
 	dct:contributor "Prof. Dr. Ueli Zahnd, History of Christianity, University of Basel, Switzerland"@en.
 
 #
@@ -24,7 +24,7 @@ schola:Scholasticism
 	a owl:Class;
 	rdfs:label "scholasticism"@en, "Scholastik"@de;
 	rdfs:comment """Method of critical thought dominating theological and philosophical study in Western Christianity and teaching by academics or scholastics (schoolmen) of universities in Europe from about 1100 to 1700."""@en;
-	rdfs:subClassOf human:CriticalThoughtMethod.
+	rdfs:subClassOf human:CriticalThoughtMethod. #*
 
 schola:Scholastic
 	a owl:Class;
@@ -34,9 +34,9 @@ schola:Scholastic
 	rdfs:subClassOf human:Person, [
 #		a owl:Restriction; owl:onProperty schola:hasRole; owl:someValuesFrom schola:Role], [
 		a owl:Restriction; owl:onProperty schola:hasRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:hasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:hasReportatorRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty schola:hasReportatorRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
+		a owl:Restriction; owl:onProperty schola:hasRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
+#		a owl:Restriction; owl:onProperty schola:hasReportatorRole; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty schola:hasReportatorRoleValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
 schola:Role
@@ -48,7 +48,7 @@ schola:Role
 schola:Reportator
 	a owl:Class;
 	rdfs:label "reportator"@la, "reportator"@en, "Reportator"@de;
-	rdfs:comment """Role of a scholastic student registering the content of a lesson."""@en; #* also secretary of lecturer?
+	rdfs:comment """Role of a scholastic student registering the content of a lesson."""@en; #* also secretary of lecturer, RP
 	rdfs:subClassOf schola:Role.
 
 schola:Commentary
@@ -139,7 +139,7 @@ schola:CommentaryLiteralExposition
 schola:CommentaryQuestions
 	a owl:Class;
 	rdfs:label "questions"@en, "Fragen"@de;
-	rdfs:comment """Scholastic commentary on a text in the form of questions."""@en;
+	rdfs:comment """Scholastic commentary on a text in the form of questions."""@en;	# not linked to content ?
 	rdfs:subClassOf schola:CommentaryForm.
 
 schola:CommentaryAbbreviation
@@ -200,23 +200,23 @@ schola:hasRoleValue
 	knora-base:subjectClassConstraint schola:Scholastic;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-schola:hasReportatorRole
-	a owl:ObjectProperty;
-	rdfs:label "has reportator role"@en, "hat Reportator Rolle"@de;
-	rdfs:comment """Relating a scholastic to a reportator role he has."""@en;
-	rdfs:domain schola:Scholastic;
-	rdfs:range schola:Reportator;  
-	rdfs:subPropertyOf schola:hasRole;
-	knora-base:subjectClassConstraint schola:Scholastic;
-	knora-base:objectClassConstraint schola:Reportator.
+# schola:hasReportatorRole
+#	a owl:ObjectProperty;
+#	rdfs:label "has reportator role"@en, "hat Reportator Rolle"@de;
+#	rdfs:comment """Relating a scholastic to a reportator role he has."""@en;
+#	rdfs:domain schola:Scholastic;
+#	rdfs:range schola:Reportator;  
+#	rdfs:subPropertyOf schola:hasRole;
+#	knora-base:subjectClassConstraint schola:Scholastic;
+#	knora-base:objectClassConstraint schola:Reportator.
 
-schola:hasReportatorRoleValue
-	a owl:ObjectProperty;
-	rdfs:label "has reportator role - statement"@en, "hat Reportator Rolle - Festlegung"@de;
-	rdfs:comment """Relating a scholastic to a statement as reification of the relation between the scholastic and a reportator role he has."""@en;
-	rdfs:subPropertyOf schola:hasRoleValue;
-	knora-base:subjectClassConstraint schola:Scholastic;
-	knora-base:objectClassConstraint knora-base:LinkValue.
+# schola:hasReportatorRoleValue
+#	a owl:ObjectProperty;
+#	rdfs:label "has reportator role - statement"@en, "hat Reportator Rolle - Festlegung"@de;
+#	rdfs:comment """Relating a scholastic to a statement as reification of the relation between the scholastic and a reportator role he has."""@en;
+#	rdfs:subPropertyOf schola:hasRoleValue;
+#	knora-base:subjectClassConstraint schola:Scholastic;
+#	knora-base:objectClassConstraint knora-base:LinkValue.
 
 schola:hasCommentaryMethod
 	a owl:ObjectProperty;
