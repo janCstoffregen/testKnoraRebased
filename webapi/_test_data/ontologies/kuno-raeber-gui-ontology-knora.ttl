@@ -38,7 +38,9 @@ kuno-raeber-gui:Poem
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasSynopsisIRI; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasSynopsisTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasAlphabeticIndex; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasDateIndex; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasFictitiousCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasCreationYear; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty kuno-raeber-gui:hasSupersedingNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES
@@ -208,6 +210,30 @@ kuno-raeber-gui:hasDateIndex
 	a owl:ObjectProperty;
 	rdfs:label "has date index"@en, "hat Datumsindex"@de;
 	rdfs:comment """Relating a poem by Kuno Raeber to its date index."""@en;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
+	knora-base:objectClassConstraint knora-base:IntValue.
+
+kuno-raeber-gui:hasFictitiousCreationDate
+	a owl:ObjectProperty;
+	rdfs:label "has fictitious creation date"@en, "hat fiktives Kreationsdatum"@de;
+	rdfs:comment """Relating a poem by Kuno Raeber to a fictitious creation date."""@en;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
+	knora-base:objectClassConstraint knora-base:DateValue.
+
+kuno-raeber-gui:hasCreationYear
+	a owl:ObjectProperty;
+	rdfs:label "has creation year"@en, "hat Kreationsjahr"@de;
+	rdfs:comment """Relating a poem by Kuno Raeber to a creation year."""@en;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
+	knora-base:objectClassConstraint knora-base:DateValue.
+
+kuno-raeber-gui:hasSupersedingNumber
+	a owl:ObjectProperty;
+	rdfs:label "has superseding number"@en, "hat höherrangige Nummer"@de;
+	rdfs:comment """Relating a poem by Kuno Raeber to an ordering number superseding the convolute position number."""@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint kuno-raeber-gui:Poem;
 	knora-base:objectClassConstraint knora-base:IntValue.
