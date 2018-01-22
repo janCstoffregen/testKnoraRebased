@@ -8,6 +8,7 @@
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.knora.org/ontology/event#>.
+@prefix physical: <http://www.knora.org/ontology/physical-resource#>.
 @prefix agent: <http://www.knora.org/ontology/agent#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
@@ -64,27 +65,27 @@ human:Person
 
 human:PersonLike # can also be :Fantasy
 	a owl:Class;
-	rdfs:label "person-like resource"@en, "Person-ähnliche Entität"@en;
-	rdfs:comment """Person like resource having additional non-human features."""@en;
-#	skos:note """E.g. Jesus is for a believer a person having also non-human features, i.e. he is in the intersection of human:Person and human:PersonLike."""@en;
-	rdfs:subClassOf knora-base:Resource.
+	rdfs:label "person-like resource"@en, "Person-ähnliche Entität"@de;
+	rdfs:comment """Person like resource having non-human features."""@en;
+	skos:note """E.g. Jesus is for a believer a person having non-human features."""@en;
+	rdfs:subClassOf knora-base:Resource. #* human:Role
 
 human:Group
 	a owl:Class;
-	rdfs:label "group of persons"@en;
+	rdfs:label "group of persons"@en, "Personengruppe"@de;
 	rdfs:comment """Group of persons."""@en;
 	rdfs:subClassOf agent:Group, cidoc:E74_Group. # cidoc:E74_Group rdfs:subClassOf cidoc:E39_Actor
 
 human:Organisation
 	a owl:Class;
-	rdfs:label "Organisation"@en;
+	rdfs:label "organisation"@en, "Organisation"@de;
 	rdfs:comment """Organized group of persons."""@en;
-	skos:note """An Organisation can be a legal person."""@en;
+	skos:note """An organisation can be a legal person."""@en;
 	rdfs:subClassOf agent:Organisation.
 
 human:Action
 	a owl:Class;
-	rdfs:label "action"@en, "Aktion"@de;
+	rdfs:label "human action"@en, "menschliche Aktion"@de;
 	rdfs:comment """Action with a human as agent."""@en;
 	rdfs:subClassOf event:Action.
 
@@ -98,52 +99,52 @@ human:PersonLife
 
 human:BiologicalSex # :subClassOf :Trait
 	a owl:Class;
-	rdfs:label "biological sex"@en, "biologisches Geschlecht"@de;
+	rdfs:label "human biological sex"@en, "menschliches biologisches Geschlecht"@de;
 	rdfs:comment """Biological trait of a human based on reproductive functions."""@en;
 	rdfs:subClassOf knora-base:Resource.
 #	owl:disjointUnionOf (human:FemaleSex human:MaleSex human:Intersexual).
 
 human:Female
 	a owl:Class;
-	rdfs:label "female"@en, "weiblich"@de;
+	rdfs:label "human female"@en, "menschlich weiblich"@de;
 	rdfs:comment """Being of a human female sex."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
 human:Male
 	a owl:Class;
-	rdfs:label "male"@en, "männlich"@de;
+	rdfs:label "human male"@en, "menschlich männlich"@de;
 	rdfs:comment """Being of a human male sex."""@en;
 #	skos:note """In adulthood producing spermatozoa for fertilizing female ova."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
 human:Intersexual
 	a owl:Class;
-	rdfs:label "intersexual"@en, "intersexual"@de;
+	rdfs:label "human intersexual"@en, "menschlich intersexual"@de;
 	rdfs:comment """Being of a sex that is neither male nor female, with biological characteristics of both."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 #	owl:disjointWith organism:Pregnant.
 
 human:Ability
 	a owl:Class;
-	rdfs:label "ability"@en, "Fähigkeit"@de;
+	rdfs:label "human ability"@en, "menschliche Fähigkeit"@de;
 	rdfs:comment """Possibility of a person to do something."""@en;
 	rdfs:subClassOf knora-base:Resource.
 
 human:Role
 	a owl:Class;
-	rdfs:label "role"@en, "Rolle"@de;
+	rdfs:label "person role"@en, "Rolle einer Person"@de;
 	rdfs:comment """A role a person has as a social entity."""@en;
 	rdfs:subClassOf knora-base:Resource.
 
 human:Creator
 	a owl:Class;
-	rdfs:label "creator"@en, "Erschaffer"@de;
+	rdfs:label "human creator"@en, "menschliche Erschaffer"@de;
 	rdfs:comment """Role of a person creating something."""@en;
 	rdfs:subClassOf human:Role.
 
 human:Creating
 	a owl:Class;
-	rdfs:label "creating"@en, "Kreierung"@de;
+	rdfs:label "human creating"@en, "menschliche Kreierung"@de;
 	rdfs:comment """Action by a person of bringing something into existence."""@en;
 	rdfs:subClassOf human:Action, event:Creating
 #		, [
@@ -152,7 +153,7 @@ human:Creating
 
 human:Creation
 	a owl:Class;
-	rdfs:label "creation"@en, "Kreation"@de;
+	rdfs:label "human creation"@en, "menschliche Kreation"@de;
 	rdfs:comment """Something created by a person."""@en;
 	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
 		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -163,11 +164,17 @@ human:Creation
 		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
+human:PhysicalCreation
+	a owl:Class;
+	rdfs:label "physical creation of one or more persons"@en, "physische Kreation einer oder mehrerer Personen"@de;
+	rdfs:comment """Physical resource created by one or more persons."""@en;
+	rdfs:subClassOf human:Creation, physical:Matter. #, cidoc:E24_Physical_Man-Made_Thing.
+
 human:Occupation
 	a owl:Class;
 	rdfs:label "occupation"@en, "Tätigkeit"@de;
 	rdfs:comment """Action serving as a person's regular source of livelihood."""@en;
-	rdfs:subClassOf event:Action, knora-base:Resource.
+	rdfs:subClassOf event:Action.
 
 human:OccupationalRole
 	a owl:Class;
@@ -183,24 +190,12 @@ human:Owner #*
 
 human:Floruit #* on which level: agent, body of thought
 	a owl:Class;
-	rdfs:label "floruit"@en, "Floruit"@de;
+	rdfs:label "person's floruit"@en, "Floruit einer Person"@de;
 	rdfs:comment """Period during which a person or an Organisation was most active or flourishing."""@en;
 	rdfs:subClassOf event:Action, knora-base:Resource # , [
 #		a owl:Restriction; owl:onProperty event:hasStartDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty event:hasEndDate; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
-
-human:ThoughtBody # OR belief system
-	a owl:Class;
-	rdfs:label "body of thought"@en, "Gedankengut"@de;
-	rdfs:comment """."""@en;
-	rdfs:subClassOf human:Creation.
-
-human:CriticalThoughtMethod # human:ThoughtMethod
-	a owl:Class;
-	rdfs:label "critical thought method"@en, "Methode des kritischen Denkens"@de;
-	rdfs:comment """Objective analysis of facts to form a judgment."""@en;
-	rdfs:subClassOf knora-base:Resource.
 
 #
 # PROPERTIES
@@ -340,7 +335,7 @@ human:hasRole
 	rdfs:comment """Relating a person to a role the person has."""@en;
 	rdfs:domain human:Person;
 	rdfs:range human:Role;
-	rdfs:subPropertyOf knora-base:hasLinkTo;
+	rdfs:subPropertyOf agent:hasRole;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint human:Role.
 
@@ -348,7 +343,7 @@ human:hasRoleValue
 	a owl:ObjectProperty;
 	rdfs:label "has role - statement"@en, "hat Rolle - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and a role the person has."""@en;
-	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	rdfs:subPropertyOf agent:hasRoleValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
@@ -372,7 +367,7 @@ human:hasOccupationalRoleValue
 
 human:isMemberOfOrganisation
 	a owl:ObjectProperty;
-	rdfs:label "is member of Organisation"@en, "ist Mitglied von Organisation"@de;
+	rdfs:label "is member of organisation"@en, "ist Mitglied von Organisation"@de;
 	rdfs:comment """Relating a person to an Organisation the person is a member of."""@en;
 	rdfs:domain human:Person;
 	rdfs:range human:Organisation;

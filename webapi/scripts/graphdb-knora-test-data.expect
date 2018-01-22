@@ -62,11 +62,11 @@ send "load ../_test_data/ontologies/catholic-organisation-ontology-knora.ttl int
 expect $prompt
 send "load ../_test_data/ontologies/philosophy-ontology-knora.ttl into http://www.knora.org/ontology/philosophy .\r"
 expect $prompt
-send "load ../_test_data/ontologies/language-ontology-knora.ttl into http://www.knora.org/ontology/language .\r"
+send "load ../_test_data/ontologies/physical-resource-ontology-knora.ttl into http://www.knora.org/ontology/physical-resource .\r"
 expect $prompt
 send "load ../_test_data/ontologies/text-ontology-knora.ttl into http://www.knora.org/ontology/text .\r"
 expect $prompt
-send "load ../_test_data/ontologies/work-ontology-knora.ttl into http://www.knora.org/ontology/work .\r"
+send "load ../_test_data/ontologies/concept-ontology-knora.ttl into http://www.knora.org/ontology/concept .\r"
 expect $prompt
 send "load ../_test_data/ontologies/publishing-ontology-knora.ttl into http://www.knora.org/ontology/publishing .\r"
 expect $prompt
@@ -79,6 +79,8 @@ expect $prompt
 send "load ../_test_data/ontologies/drcs-ontology-knora.ttl into http://www.knora.org/ontology/drcs .\r"
 expect $prompt
 send "load ../_test_data/ontologies/philosophies-ontology-knora.ttl into http://www.knora.org/ontology/philosophies .\r"
+expect $prompt
+send "load ../_test_data/ontologies/language-ontology-knora.ttl into http://www.knora.org/ontology/language .\r"
 expect $prompt
 send "load ../_test_data/ontologies/catholic-orders-ontology-knora.ttl into http://www.knora.org/ontology/catholic-orders .\r"
 expect $prompt

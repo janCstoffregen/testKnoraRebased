@@ -9,7 +9,7 @@
 @prefix event: <http://www.knora.org/ontology/event#>.
 @prefix human: <http://www.knora.org/ontology/human#>.
 @prefix lang: <http://www.knora.org/ontology/language#>.
-@prefix work: <http://www.knora.org/ontology/work#>.
+@prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 @prefix publish: <http://www.knora.org/ontology/publishing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
@@ -17,10 +17,10 @@
 @prefix text: <http://www.knora.org/ontology/text#>.
 
 <http://www.knora.org/ontology/text>
-	a owl:Ontology.
-#	dct:title "An ontology about text"@en;
-#	dct:description """Formal description of text in broadest sense, general subclasses, related classes, and properties."""@en;
-#	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	a owl:Ontology;
+	dct:title "An ontology about text"@en;
+	dct:description """Formal description of text in broadest sense, general subclasses, related classes, and properties."""@en;
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
 #	dct:contributor:
 #	skos:note """Representation of an otherwise literal data element as object ('objectivation') enabling relating it to metadata"""@en.
 
@@ -32,7 +32,7 @@ text:Expression
 	a owl:Class;
 	rdfs:label "text expression"@en, "Text-Expression"@de;
 	rdfs:comment """Text as a human luinguistic expression."""@en;
-	rdfs:subClassOf work:Expression, lang:HumanNaturalLanguageExpression, [
+	rdfs:subClassOf concept:Expression, lang:HumanNaturalLanguageExpression, [
 		a owl:Restriction; owl:onProperty text:hasAuthor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasAuthorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasRevisor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -64,7 +64,7 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #*		a owl:Restriction; owl:onProperty text:isFinalVersion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#*		a owl:Restriction; owl:onProperty text:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
 #		a owl:Restriction; owl:onProperty lang:expressedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -173,7 +173,7 @@ text:Redactor #*
 	rdfs:comment """Role of a person assembling (pieces of) texts to a new coherent text."""@en;
 	rdfs:subClassOf human:Creator.
 
-text:Glossator #* -> scholastic?
+text:Glossator #* -> scholastic? Unlikely to be used in modern times?
 	a owl:Class;
 	rdfs:label "glossator"@la, "glossator"@en, "Glossator"@de;
 	rdfs:comment """Role of a person adding texts or glosses to a text."""@en;
@@ -189,13 +189,13 @@ text:Abbreviator #* -> scholastic?
 text:Copyist #* -> scholastic? ~ handwriting
 	a owl:Class;
 	rdfs:label "scribes"@la, "copyist"@en, "Kopist"@de; # "scribe"@en, "Schreiber"@de;
-	rdfs:comment """Role of a person copying text by handwriting."""@en;
+	rdfs:comment """Role of a person copying text by writing."""@en;
 	rdfs:subClassOf human:Creator.
 
 text:Translator #* -> scholastic? ~ handwriting
 	a owl:Class;
 	rdfs:label "translator"@en, "Übersetzer"@de;
-	rdfs:comment """Role of a person translating text by handwriting."""@en;
+	rdfs:comment """Role of a person translating text by writing."""@en;
 	rdfs:subClassOf human:Creator.
 
 text:Revisor
@@ -254,7 +254,7 @@ text:LetterExpression
 		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
-text:TextDevelopment
+text:Development
 	a owl:Class;
 	rdfs:label "text development"@en, "Text-Entwicklung"@de;
 	rdfs:comment """Action wherein a person(s) creates text resulting in different manifestation, e.g. from notebook to manuscript to typescript to published print."""@en;
@@ -522,7 +522,7 @@ text:isDiplomaticTranscriptionOfTextOnPage
 	rdfs:comment "Relating a diplomatic transcription to a page its source text is on."@en;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:DiplomaticTranscription;
-	knora-base:objectClassConstraint work:Page.
+	knora-base:objectClassConstraint infocar:Page.
 
 text:isDiplomaticTranscriptionOfTextOnPageValue
 	a owl:ObjectProperty;
@@ -687,7 +687,7 @@ text:hasRedactorValue
 text:hasReferenceText
 	a owl:ObjectProperty;
 	rdfs:label "has reference text"@en, "hat Bezugstext"@de;
-	rdfs:comment "Relating a text to another as reference."@en;
+	rdfs:comment "Relating a text to another one as its reference."@en;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint text:Expression.
@@ -695,18 +695,10 @@ text:hasReferenceText
 text:hasReferenceTextValue
 	a owl:ObjectProperty;
 	rdfs:label "has reference text - statement"@en, "hat Bezugstext - Festlegung"@de;
-	rdfs:comment "Relating a text to a reification statement of the relation between text and another one as reference."@en;
+	rdfs:comment "Relating a text to a reification statement of the relation between the text and another one as its reference."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
-
-#text:isPartOfCycle # collection
-#	a owl:ObjectProperty;
-#	rdfs:label "is part of cycle"@en, "ist Teil eines Zyklus"@de;
-#	rdfs:comment """Relating a text to a cycle it is part of."""@en;
-#	rdfs:subPropertyOf knora-base:hasLinkTo;
-#	knora-base:subjectClassConstraint text:Expression;
-#	knora-base:objectClassConstraint work:Cycle.
 
 #text:hasStrophe # structure
 #	a owl:ObjectProperty;

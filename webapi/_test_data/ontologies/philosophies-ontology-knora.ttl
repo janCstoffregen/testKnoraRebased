@@ -3,7 +3,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix human: <http://www.knora.org/ontology/human#>.
 @prefix philo: <http://www.knora.org/ontology/philosophy#>.
 @prefix philos: <http://www.knora.org/ontology/philosophies#>.
 

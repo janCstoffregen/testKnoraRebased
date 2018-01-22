@@ -3,7 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix dct: <http://purl.org/dc/terms/>.
-@prefix human: <http://www.knora.org/ontology/human#>.
+@prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix philo: <http://www.knora.org/ontology/philosophy#>.
 
 <http://www.knora.org/ontology/philosophy>
@@ -21,11 +21,11 @@ philo:Philosophy
 	a owl:Class;
 	rdfs:label "philosophy"@en, "Philosophie"@de;
 	rdfs:comment """."""@en;
-	rdfs:subClassOf human:ThoughtBody. #*
+	rdfs:subClassOf concept:ThoughtBody. #*
 
 philo:Metaphysics
 	a owl:Class;
-	rdfs:label "Metaphysics"@en, "Metaphysik"@de;
+	rdfs:label "metaphysics"@en, "Metaphysik"@de;
 	rdfs:comment """."""@en;
 	rdfs:subClassOf philo:Philosophy. #*
 
@@ -33,4 +33,4 @@ philo:Metaphysics
 
 # philo:ScholasticPhilosophy ?
 
-# human:CriticalThoughtMethod part/SC of philosophy
+# concept:CriticalThoughtMethod part/SC of philosophy ?

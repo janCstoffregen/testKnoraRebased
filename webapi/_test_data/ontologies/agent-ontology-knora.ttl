@@ -41,7 +41,7 @@ agent:Group
 agent:Organisation
 	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/agent#>;
-	rdfs:label "Organisation"@en;
+	rdfs:label "organisation"@en;
 	rdfs:comment """Organized group of agents."""@en;
 #	skos:note """An Organisation can be a legal person."""@en;
 	rdfs:subClassOf agent:Agent, foaf:Organisation;
@@ -65,7 +65,7 @@ agent:GroupRole
 agent:OrganisationRole
 	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/agent#>;
-	rdfs:label "Organisation role"@en;
+	rdfs:label "organisation role"@en;
 	rdfs:comment """Role of an Organisation."""@en;
 	rdfs:subClassOf agent:Role. #, [a owl:Restriction; owl:onProperty agent:rolePlayedBy; owl:allValuesFrom foaf:Organisation].
 

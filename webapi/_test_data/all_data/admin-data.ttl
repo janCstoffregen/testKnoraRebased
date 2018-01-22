@@ -568,14 +568,14 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/image>.
 
 #
-# Work
+# Concept
 #
 
-<http://rdfh.ch/projects/work> a knora-base:knoraProject;
-	knora-base:projectShortname "work"^^xsd:string;
-	knora-base:projectLongname "An ontology about work as intellectual product"^^xsd:string;
-	knora-base:projectDescription "Formal description of work as intellectual product, its general subclasses, related classes and properties, as described in the ontology Functional Requirements for Bibliographic Records, object oriented"^^xsd:string;
-	knora-base:projectOntology <http://www.knora.org/ontology/work>;
+<http://rdfh.ch/projects/concept> a knora-base:knoraProject;
+	knora-base:projectShortname "concept"^^xsd:string;
+	knora-base:projectLongname "An ontology about concept"^^xsd:string;
+	knora-base:projectDescription "Formal description of concept, its general subclasses, e.g. information, related classes and properties"^^xsd:string;
+	knora-base:projectOntology <http://www.knora.org/ontology/concept>;
 	knora-base:status "true"^^xsd:boolean;
 	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
 
@@ -587,9 +587,9 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
 	knora-base:preferredLanguage "de"^^xsd:string;
 	knora-base:status "true"^^xsd:boolean;
-	knora-base:isInProject <http://rdfh.ch/projects/work>;
+	knora-base:isInProject <http://rdfh.ch/projects/concept>;
 	knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
-	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/work>.
+	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/concept>.
 
 #
 # Publishing
@@ -868,6 +868,30 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/philosophies>.
 
 #
+# Physical Resource
+#
+
+<http://rdfh.ch/projects/physical-resource> a knora-base:knoraProject;
+	knora-base:projectShortname "physical resource"^^xsd:string;
+	knora-base:projectLongname "An ontology about physical resource"^^xsd:string;
+	knora-base:projectDescription "Formal description of physical resource, general subclasses, related classes and properties."^^xsd:string;
+	knora-base:projectOntology <http://www.knora.org/ontology/physical-resource>;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+	knora-base:userid "hansCools"^^xsd:string;
+	knora-base:familyName "Cools"^^xsd:string;
+	knora-base:givenName "Hans"^^xsd:string;
+	knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+	knora-base:preferredLanguage "de"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:isInProject <http://rdfh.ch/projects/physical-resource>;
+	knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/physical-resource>.
+
+#
 # Catholic Orders
 #
 
@@ -890,5 +914,3 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:isInProject <http://rdfh.ch/projects/catholic-orders>;
 	knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
 	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/catholic-orders>.
-
-

@@ -22,7 +22,7 @@
 cathorg:CatholicOrganisation
 	a owl:Class;
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
-	rdfs:label "catholic Organisation"@en;
+	rdfs:label "catholic organisation"@en;
 	rdfs:comment """Organisation following a catholic belief."""@en; # considering an organisation as agent, able to follow a belief
 	rdfs:subClassOf human:Organisation.
 

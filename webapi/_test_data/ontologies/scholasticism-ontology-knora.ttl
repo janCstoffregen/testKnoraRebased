@@ -5,6 +5,7 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
 @prefix human: <http://www.knora.org/ontology/human#>.
+@prefix concept: <http://www.knora.org/ontology/concept#>.
 @prefix text: <http://www.knora.org/ontology/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix schola: <http://www.knora.org/ontology/scholasticism#>.
@@ -24,7 +25,7 @@ schola:Scholasticism
 	a owl:Class;
 	rdfs:label "scholasticism"@en, "Scholastik"@de;
 	rdfs:comment """Method of critical thought dominating theological and philosophical study in Western Christianity and teaching by academics or scholastics (schoolmen) of universities in Europe from about 1100 to 1700."""@en;
-	rdfs:subClassOf human:CriticalThoughtMethod. #*
+	rdfs:subClassOf concept:CriticalThoughtMethod. #*
 
 schola:Scholastic
 	a owl:Class;
@@ -86,7 +87,7 @@ schola:CommentaryMethod #* stage?, RP
 	a owl:Class;
 	rdfs:label "scholastic commentary method"@en, "scholastische Kommentarmethode"@de;
 	rdfs:comment """Scholastic method to comment."""@en;
-	rdfs:subClassOf cidoc:E29_Design_or_Procedure, knora-base:Resource. #* subClassOf more general method
+	rdfs:subClassOf concept:Procedure.
 
 schola:Lectura
 	a owl:Class;
@@ -122,7 +123,7 @@ schola:CommentaryForm #* more general InformationForm ?
 	a owl:Class;
 	rdfs:label "scholastic commentary form"@en, "scholastische Kommentarform"@de;
 	rdfs:comment """Form to represent a scholastic commentary."""@en;
-	rdfs:subClassOf cidoc:E73_Information_Object, knora-base:Resource.
+	rdfs:subClassOf concept:Information.
 
 schola:CommentaryGlosses
 	a owl:Class;

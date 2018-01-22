@@ -1,0 +1,87 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/>.
+# @prefix space: <http://www.knora.org/ontology/space#>.
+@prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
+@prefix physical: <http://www.knora.org/ontology/physical-resource#>.
+
+<http://www.knora.org/ontology/physical-resource>
+	a owl:Ontology;
+	dct:title """Physical Resource"""@en;
+	dct:description """Formal description of physical resource in broadest sense, general subclasses, related classes, and properties."""@en;
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
+
+#
+# CLASSES
+#
+
+physical:Resource
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
+	rdfs:label "physical resource"@en;
+	rdfs:comment """."""@en;
+	rdfs:subClassOf dct:PhysicalResource, knora-base:Resource, [ #, space:SpatialResource.
+		a owl:Restriction; owl:onProperty physical:isPartOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty physical:isPartOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+physical:Matter
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
+	rdfs:label "matter"@en;
+	rdfs:comment """Physical resource having mass and volume."""@en;
+	skos:note """As in classical physics observed in everyday life."""@en;
+	rdfs:subClassOf physical:Resource.
+
+physical:Compound
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
+	rdfs:label "compound"@en;
+	rdfs:comment """Physical resource composed of more than 1 type of substance."""@en;
+	skos:note """This can be anything, e.g. chemical compound containing more than 1 elementary substance."""@en;
+	rdfs:subClassOf physical:Matter.
+
+physical:Specimen
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
+	rdfs:label "specimen"@en;
+	rdfs:comment """Sample containing a substance for examination."""@en;
+	rdfs:subClassOf physical:Matter.
+
+physical:Product
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
+	rdfs:label "product"@en;
+	rdfs:comment """Physical resource as result of producing."""@en;
+	rdfs:subClassOf physical:Matter.
+
+physical:Device
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
+	rdfs:label "device"@en, "Gerät"@de;
+	rdfs:comment """Physical resource serving a particular purpose."""@en;
+	rdfs:subClassOf physical:Matter, foaf:Agent.
+
+#
+# PROPERTIES
+#
+
+physical:isPartOf
+	a owl:ObjectProperty, owl:TransitiveProperty;
+	rdfs:label "is part of"@en, "ist Teil von"@de;
+	rdfs:comment "Relating a physical resource to another one it is part of."@en;
+	rdfs:subPropertyOf cidoc:P46i_forms_part_of, knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint physical:Resource;
+	knora-base:objectClassConstraint physical:Resource.
+
+physical:isPartOfValue
+	a owl:ObjectProperty;
+	rdfs:label "is part of - statement"@en, "ist Teil von - Festlegung"@de;
+	rdfs:comment "Relating a physical resource to a reification statement of the relation between that physical resource and another one it is part of."@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint physical:Resource;
+	knora-base:objectClassConstraint knora-base:LinkValue.

@@ -9,8 +9,9 @@
 @prefix frbroo: <http://iflastandards.info/ns/fr/frbr/frbroo/>.
 @prefix event: <http://www.knora.org/ontology/event#>.
 @prefix agent: <http://www.knora.org/ontology/agent#>.
-@prefix text: <http://www.knora.org/ontology/text#>.
 @prefix human: <http://www.knora.org/ontology/human#>.
+@prefix concept: <http://www.knora.org/ontology/concept#>.
+@prefix text: <http://www.knora.org/ontology/text#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 @prefix lang: <http://www.knora.org/ontology/language#>.
@@ -25,7 +26,7 @@
 # CLASSES
 #
 
-lang:Language
+lang:Language #*
 	a owl:Class;
 	rdfs:label "language"@en, "Sprache"@de;
 	rdfs:comment """Ability to express meaning using carriers (e.g. a symbol, sign, word) along rules or grammar model, e.g. syntax for serialization."""@en;
@@ -42,13 +43,13 @@ lang:HumanNaturalLanguage #*
 	rdfs:label "human natural language"@en, "menschliche naturliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans."""@en;
 	skos:note """Excluded is formal language, e.g. computer programming language."""@en;
-	rdfs:subClassOf lang:HumanLanguage, cidoc:E56_Language.
+	rdfs:subClassOf lang:HumanLanguage. #, cidoc:E56_Language.
 
 lang:HumanNaturalLanguageExpression #* information
 	a owl:Class;
 	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
 	rdfs:comment """Expression in a human natural language."""@en;
-	rdfs:subClassOf cidoc:E33_Linguistic_Object, knora-base:Resource, [
+	rdfs:subClassOf concept:SymbolicConcept, cidoc:E33_Linguistic_Object, [
 		a owl:Restriction; owl:onProperty lang:expressedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty lang:expressedInNaturalLanguageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty lang:expressedInDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -69,7 +70,7 @@ lang:Dialect
 lang:Translator #*
 	a owl:Class;
 	rdfs:label "translator"@en, "Übersetzer"@de;
-	rdfs:comment """Role of a person transferring information in one natural language to another."""@en;
+	rdfs:comment """Role of a person transferring information in a natural language to another one."""@en;
 	rdfs:subClassOf human:Role.
 
 #
