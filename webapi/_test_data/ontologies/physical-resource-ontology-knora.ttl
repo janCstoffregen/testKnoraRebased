@@ -56,15 +56,8 @@ physical:Product
 	a owl:Class;
 	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
 	rdfs:label "product"@en;
-	rdfs:comment """Physical resource as result of producing."""@en;
+	rdfs:comment """Matter as result of producing in broadest sense."""@en;
 	rdfs:subClassOf physical:Matter.
-
-physical:Device
-	a owl:Class;
-	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
-	rdfs:label "device"@en, "Gerät"@de;
-	rdfs:comment """Physical resource serving a particular purpose."""@en;
-	rdfs:subClassOf physical:Matter, foaf:Agent.
 
 #
 # PROPERTIES
@@ -72,6 +65,7 @@ physical:Device
 
 physical:isPartOf
 	a owl:ObjectProperty, owl:TransitiveProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
 	rdfs:label "is part of"@en, "ist Teil von"@de;
 	rdfs:comment "Relating a physical resource to another one it is part of."@en;
 	rdfs:subPropertyOf cidoc:P46i_forms_part_of, knora-base:hasLinkTo;
@@ -80,6 +74,7 @@ physical:isPartOf
 
 physical:isPartOfValue
 	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/physical-resource#>;
 	rdfs:label "is part of - statement"@en, "ist Teil von - Festlegung"@de;
 	rdfs:comment "Relating a physical resource to a reification statement of the relation between that physical resource and another one it is part of."@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;

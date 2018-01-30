@@ -84,6 +84,10 @@ send "load ../_test_data/ontologies/language-ontology-knora.ttl into http://www.
 expect $prompt
 send "load ../_test_data/ontologies/catholic-orders-ontology-knora.ttl into http://www.knora.org/ontology/catholic-orders .\r"
 expect $prompt
+send "load ../_test_data/ontologies/organisation-ontology-knora.ttl into http://www.knora.org/ontology/organisation .\r"
+expect $prompt
+send "load ../_test_data/ontologies/literature-ontology-knora.ttl into http://www.knora.org/ontology/literature .\r"
+expect $prompt
 send "close .\r"
 expect $prompt
 send "exit .\r"

@@ -5,6 +5,7 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix event: <http://www.knora.org/ontology/event#>.
 @prefix human: <http://www.knora.org/ontology/human#>.
+@prefix org: <http://www.knora.org/ontology/organisation#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix cathorg: <http://www.knora.org/ontology/catholic-organisation#>.
 
@@ -24,7 +25,7 @@ cathorg:CatholicOrganisation
 #	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "catholic organisation"@en;
 	rdfs:comment """Organisation following a catholic belief."""@en; # considering an organisation as agent, able to follow a belief
-	rdfs:subClassOf human:Organisation.
+	rdfs:subClassOf org:ReligiousOrganisation.
 
 cathorg:Order
 	a owl:Class;

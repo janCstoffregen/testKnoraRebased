@@ -10,6 +10,7 @@
 @prefix text: <http://www.knora.org/ontology/text#>.
 @prefix infocar: <http://www.knora.org/ontology/information-carrier#>.
 @prefix image: <http://www.knora.org/ontology/image#>.
+@prefix litera: <http://www.knora.org/ontology/literature#>.
 @prefix publish: <http://www.knora.org/ontology/publishing#>.
 @prefix knora-base: <http://www.knora.org/ontology/knora-base#>.
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
@@ -49,7 +50,7 @@ kuno-raeber:Text
 		a owl:Restriction; owl:onProperty knora-base:seqnum; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasEdition; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:hasEditionValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty kuno-raeber:hasModificationDate; owl:cardinality "1"^^xsd:nonNegativeInteger] #, [
+		a owl:Restriction; owl:onProperty human:hasModificationDate; owl:cardinality "1"^^xsd:nonNegativeInteger] #, [
 #		a owl:Restriction; owl:onProperty publish:isPublishedOnline; owl:cardinality "0"^^xsd:nonNegativeInteger], [ # not implemented
 #		a owl:Restriction; owl:onProperty publish:isPublishedOnlineValue; owl:cardinality "0"^^xsd:nonNegativeInteger] # not implemented
 		.
@@ -58,7 +59,7 @@ kuno-raeber:Poem
 	a owl:Class;
 	rdfs:label "poem"@en, "Gedicht"@de;
 	rdfs:comment """Poem authored by Kuno Raeber."""@en, """Gedicht von Kuno Raeber."""@de;
-	rdfs:subClassOf text:Poem, kuno-raeber:Text, [
+	rdfs:subClassOf litera:Poem, kuno-raeber:Text, [
 		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasDetailDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasSpecialDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -116,7 +117,7 @@ kuno-raeber:PoemNote
 	a owl:Class;
 	rdfs:label "poem note"@en, "Gedichtnotiz"@de;
 	rdfs:comment """Poem note authored by Kuno Raeber."""@en, """Gedichtnotiz von Kuno Raeber."""@de;
-	rdfs:subClassOf kuno-raeber:HandwrittenPoem, concept:Draft, [
+	rdfs:subClassOf kuno-raeber:HandwrittenPoem, human:FirstVersion, [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInNotebook; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty kuno-raeber:isInNotebookValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
 
@@ -427,15 +428,6 @@ kuno-raeber:hasEditionValue
 	rdfs:subPropertyOf text:hasEditionValue;
 	knora-base:subjectClassConstraint kuno-raeber:Text;
 	knora-base:objectClassConstraint knora-base:LinkValue.
-
-kuno-raeber:hasModificationDate #*
-	a owl:ObjectProperty;
-	rdfs:label "has modification date"@en, "hat Änderungsdatum"@de;
-	rdfs:comment """Relating a human creation to its modification date as text."""@en;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint kuno-raeber:Text;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
 
 kuno-raeber:hasDiplomaticTranscription
 	a owl:ObjectProperty;

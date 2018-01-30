@@ -38,7 +38,7 @@ lang:HumanLanguage
 	rdfs:comment """Language of a human."""@en;
 	rdfs:subClassOf lang:Language, human:Ability.
 
-lang:HumanNaturalLanguage #*
+lang:HumanNaturalLanguage #* Is a human natural language a human creation?
 	a owl:Class;
 	rdfs:label "human natural language"@en, "menschliche naturliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans."""@en;
@@ -65,13 +65,41 @@ lang:Dialect
 	rdfs:comment """Regional variant of a standard language."""@en;
 	rdfs:subClassOf lang:HumanNaturalLanguage.
 
-# lang:Translation
-
 lang:Translator #*
 	a owl:Class;
 	rdfs:label "translator"@en, "Übersetzer"@de;
-	rdfs:comment """Role of a person transferring information in a natural language to another one."""@en;
+	rdfs:comment """Role of an agent transferring a human natural language expression in another natural language."""@en;
+	rdfs:subClassOf agent:Role.
+
+lang:PersonTranslator
+	a owl:Class;
+	rdfs:label "person-translator"@en, "Person-Übersetzer"@de;
+	rdfs:comment """Role of a person as translator."""@en;
 	rdfs:subClassOf human:Role.
+
+lang:Translation #* OR result of translating with translated text as its object 
+	a owl:Class;
+	rdfs:label "translation"@en, "Übersetzung"@de;
+	rdfs:comment """Human natural language expression transferred in another natural language."""@en;
+	rdfs:subClassOf event:Output.
+
+lang:PersonTranslation
+	a owl:Class;
+	rdfs:label "person's translation"@en, "Übersetzung einer Person"@de;
+	rdfs:comment """Translation done by a person."""@en;
+	rdfs:subClassOf human:CreationVersion.
+
+lang:MachineTranslation
+	a owl:Class;
+	rdfs:label "machine translation"@en, "maschinelle Übersetzung"@de;
+	rdfs:comment """Translation done by a computer."""@en;
+	rdfs:subClassOf event:Output.
+
+lang:Sentence #* instead of in text - structure
+	a owl:Class;
+	rdfs:label "sentence"@en, "Satz"@de;
+	rdfs:comment """Syntactical language unit."""@en;
+	rdfs:subClassOf lang:HumanNaturalLanguageExpression.
 
 #
 # PROPERTIES
@@ -111,21 +139,57 @@ lang:expressedInDialectValue
 	knora-base:subjectClassConstraint lang:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-lang:hasTranslator
+lang:hasTranslator #*
 	a owl:ObjectProperty;
 	rdfs:label "has translator"@en, "hat Übersetzer"@de;
-	rdfs:comment """Relating a human expression to a person who translated it."""@en;
+	rdfs:comment """Relating a natural language expression to an agent that translated it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
-#	rdfs:domain lang:HumanNaturalLanguageExpression;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom lang:Translator]];
+	rdfs:domain lang:HumanNaturalLanguageExpression;
+	rdfs:range agent:Agent; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty agent:hasRole; owl:someValuesFrom lang:Translator]];
 	knora-base:subjectClassConstraint lang:HumanNaturalLanguageExpression;
-	knora-base:objectClassConstraint human:Person.
+	knora-base:objectClassConstraint agent:Agent.
 
 lang:hasTranslatorValue
 	a owl:ObjectProperty;
 	rdfs:label "has translator - statement"@en, "hat Übersetzer - Festlegung"@de;
-	rdfs:comment """Relating a human expression to a reification statement of the relation between the expression and a person who translated it."""@en;
+	rdfs:comment """Relating a natural language expression to a reification statement of the relation between the expression and an agent that translated it."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint lang:HumanNaturalLanguageExpression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+lang:hasPersonTranslator
+	a owl:ObjectProperty;
+	rdfs:label "has person-translator"@en, "hat Person-Übersetzer"@de;
+	rdfs:comment """Relating a natural language expression to a person who translated it."""@en;
+	rdfs:subPropertyOf lang:hasTranslator;
+	rdfs:domain lang:HumanNaturalLanguageExpression;
+	rdfs:range human:Person; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:personHasRole; owl:someValuesFrom lang:PersonTranslator]];
+	knora-base:subjectClassConstraint lang:HumanNaturalLanguageExpression;
+	knora-base:objectClassConstraint human:Person.
+
+lang:hasPersonTranslatorValue
+	a owl:ObjectProperty;
+	rdfs:label "has person-translator - statement"@en, "hat Person-Übersetzer - Festlegung"@de;
+	rdfs:comment """Relating a natural language expression to a reification statement of the relation between the expression and a person who translated it."""@en;
+	rdfs:subPropertyOf lang:hasTranslatorValue;
+	knora-base:subjectClassConstraint lang:HumanNaturalLanguageExpression;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+lang:hasMachineTranslator
+	a owl:ObjectProperty;
+	rdfs:label "has machine-translator"@en, "hat Maschine-Übersetzer"@de;
+	rdfs:comment """Relating a natural language expression to a machine that translated it."""@en;
+	rdfs:subPropertyOf lang:hasTranslator;
+	rdfs:domain lang:HumanNaturalLanguageExpression;
+	rdfs:range agent:Machine; # [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty human:hasRole; owl:someValuesFrom lang:Translator]];
+	knora-base:subjectClassConstraint lang:HumanNaturalLanguageExpression;
+	knora-base:objectClassConstraint agent:Computer.
+
+lang:hasMachineTranslatorValue
+	a owl:ObjectProperty;
+	rdfs:label "has machine-translator - statement"@en, "hat Maschine-Übersetzer - Festlegung"@de;
+	rdfs:comment """Relating a natural language expression to a reification statement of the relation between the expression and a machine that translated it."""@en;
+	rdfs:subPropertyOf lang:hasTranslatorValue;
 	knora-base:subjectClassConstraint lang:HumanNaturalLanguageExpression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

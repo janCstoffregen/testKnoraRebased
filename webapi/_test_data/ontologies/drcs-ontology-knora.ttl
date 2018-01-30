@@ -44,7 +44,7 @@ drcs:Person
 #		a owl:Restriction; owl:onProperty cathord:isMemberOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
-# drcs:Scholastic
+# drcs:Scholastic #*
 #	a owl:Class;
 #	rdfs:label "scholastic"@en, "Scholastiker"@de;
 #	rdfs:comment """Scholastic as subject in the scientific study of Petrus Lombardus."""@en;

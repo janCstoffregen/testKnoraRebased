@@ -119,29 +119,25 @@ concept:Expression
 
 # to do: concept:PolyAuthorExpression
 
-concept:Version
-	a owl:Class;
-	rdfs:label "version"@en, "Version"@de;
-	rdfs:comment """Version of an expression, e.g. a text, picture or plan."""@en;
-	rdfs:subClassOf concept:Expression.
-
-concept:Draft
-	a owl:Class;
-	rdfs:label "draft"@en, "Entwurf"@de;
-	rdfs:comment """Developmental expression."""@en;
-	rdfs:subClassOf concept:Version.
-
-concept:FinalVersion
-	a owl:Class;
-	rdfs:label "final version"@en, "Endfassung"@de;
-	rdfs:comment """Last version of an expression as intended by the author."""@en;
-	rdfs:subClassOf concept:Version.
-
 concept:Cycle
 	a owl:Class;
 	rdfs:label "cycle"@en, "Zyklus"@de;
 	rdfs:comment """Set of expressions belonging together, usually created around a certain theme, and intended to be experienced in a certain sequence."""@en;
 	rdfs:subClassOf knora-base:Resource. #* to do
+
+concept:Fiction
+	a owl:Class;
+	rdfs:label "fiction"@en, "Fiktion"@de;
+	rdfs:comment """Expression having content derived from imagination."""@en;
+	rdfs:subClassOf concept:Expression.
+
+concept:NonFiction
+	a owl:Class;
+	rdfs:label "Non-fiction"@en, "sachliche Expression"@de;
+	rdfs:comment """Expression having content based on fact."""@en;
+	rdfs:subClassOf concept:Expression.
+
+# concept:Religion rdfs:subClassOf concept:Proposition.
 
 #
 # PROPERTIES
