@@ -15,7 +15,8 @@
 	dct:title "An ontology about Scholasticism"@en;
 	dct:description """Formal description of elements in Scholasticism."""@en;
 	dct:creator "Hans Cools, MD, software developer, NIE, University of Basel, Switzerland"@en;
-	dct:contributor "Prof. Dr. Ueli Zahnd, History of Christianity, University of Basel, Switzerland"@en.
+	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -55,7 +56,7 @@ schola:Reportator
 schola:Commentary
 	a owl:Class;
 	rdfs:label "commentarius scholasticus"@la, "scholastic commentary"@en, "scholastischer Kommentar"@de;
-	rdfs:comment """Commentary made by a person in the role of scholastic."""@en;
+	rdfs:comment """Commentary made by a person with a scholastic role."""@en;
 	rdfs:subClassOf text:Commentary, [
 		a owl:Restriction; owl:onProperty schola:hasCommentaryMethod; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty schola:hasCommentaryMethodValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [

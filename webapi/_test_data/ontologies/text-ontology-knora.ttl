@@ -21,13 +21,16 @@
 	a owl:Ontology;
 	dct:title "An ontology about text"@en;
 	dct:description """Formal description of text in broadest sense, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
-#	dct:contributor:
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:contributor "Roberta Padlina, tool coordinator, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 #	skos:note """Representation of an otherwise literal data element as object ('objectivation') enabling relating it to metadata"""@en.
 
 #
 # CLASSES
 #
+
+# text:Text
 
 text:Expression
 	a owl:Class;
@@ -48,10 +51,6 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasCopyistValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasRedactor; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasRedactorValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasContent; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasEdition; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasEditionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -59,15 +58,6 @@ text:Expression
 		a owl:Restriction; owl:onProperty text:hasSameEditionAsValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasDiplomaticTranscription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasDiplomaticTranscriptionValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasPageNumberIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasColumnIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#*		a owl:Restriction; owl:onProperty text:isFinalVersion; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
 #		a owl:Restriction; owl:onProperty lang:expressedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty lang:expressedInNaturalLanguageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty lang:expressedInDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -77,16 +67,40 @@ text:Expression
 #		a owl:Restriction; owl:onProperty lang:translatedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty lang:translatedInNaturalLanguageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 #		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [	
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasIncipit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasExplicit; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasPageIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasPageNumberIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasColumnIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasLineNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasVersionIndicator; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isPartOfCycle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasReferenceText; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasReferenceTextValue; owl:minCardinality "0"^^xsd:nonNegativeInteger] #, [
 #		a owl:Restriction; owl:onProperty publish:hasPublicationNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
-text:Author #* ONLY text
+text:Author
 	a owl:Class;
 	rdfs:label "author"@en, "Autor"@de;
 	rdfs:comment """Role of a person being responsible for a text."""@en;
 	skos:note """Often an author is also the creator of a text."""@en;
 	rdfs:subClassOf human:Role.
+
+text:Revisor
+	a owl:Class;
+	rdfs:label "revisor"@en, "Revisor"@de;
+	rdfs:comment """Role of a person checking on certain aspects of a text."""@en;
+	rdfs:subClassOf human:Role.
+
+text:Editor
+	a owl:Class;
+	rdfs:label "text editor"@en, "Text-Redakteur"@de;
+	rdfs:comment """Role of a person changing a text."""@en;
+	rdfs:subClassOf human:Creator.
 
 text:Derivative
 	a owl:Class;
@@ -100,13 +114,7 @@ text:Edition
 	rdfs:comment """Changed form of a text expression as a result of editing."""@en;
 	rdfs:subClassOf text:Derivative.
 
-text:Editor
-	a owl:Class;
-	rdfs:label "text editor"@en, "Text-Redakteur"@de;
-	rdfs:comment """Role of a person changing a text."""@en;
-	rdfs:subClassOf human:Creator.
-
-text:Redactor #*
+text:Redactor #* -> scholastic?
 	a owl:Class;
 	rdfs:label "redactor"@la, "redactor"@en, "Redactor"@de;
 	rdfs:comment """Role of a person assembling (pieces of) texts to a new coherent text."""@en;
@@ -135,27 +143,13 @@ text:Translator #* -> scholastic? ~ handwriting
 	a owl:Class;
 	rdfs:label "translator"@en, "Übersetzer"@de;
 	rdfs:comment """Role of a person translating text by writing."""@en;
-	rdfs:subClassOf human:Creator.
+	rdfs:subClassOf lang:Translator, human:Creator.
 
-text:Revisor
-	a owl:Class;
-	rdfs:label "revisor"@en, "Revisor"@de;
-	rdfs:comment """Role of a person checking on certain aspects of a text."""@en;
-	rdfs:subClassOf human:Role.
-
-text:DiplomaticTranscription
-	a owl:Class;
-	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
-	rdfs:comment """Transcription of a text with diacritical signs indicating visual textual properties to describe the textual state."""@en;
-	rdfs:subClassOf text:Derivative, [
-		a owl:Restriction; owl:onProperty text:isDiplomaticTranscriptionOfTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isDiplomaticTranscriptionOfTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-text:WrittenText #* abstracted from its carrier
+text:WrittenText
 	a owl:Class;
 	rdfs:label "written text"@en, "geschriebener Text"@de;
-	rdfs:comment """Text written by any method, e.g. manually, with an analogue or digital typewriter, or on a computer."""@en;
-	rdfs:subClassOf lang:HumanNaturalLanguageExpression, [ #*
+	rdfs:comment """Text written by any method, e.g. manually, with an analogue or digital typewriter, or on a computer, abstracted from its carrier."""@en;
+	rdfs:subClassOf lang:HumanNaturalLanguageExpression, [
 		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isWrittenWithValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
@@ -176,6 +170,113 @@ text:TypewrittenText
 		a owl:Restriction; owl:onProperty infocar:isInTypescriptValue; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isWrittenWith; owl:someValuesFrom text:Typewriter].
 
+text:Structure
+	a owl:Class;
+	rdfs:label "text structure"@en, "Textstruktur"@de;
+	rdfs:comment """Human natural language expression as textual structure, e.g. a sentence, text line, verse, paragraph, strophe."""@en;
+	skos:note """Making up a text:Expression, without necessarily being one itself."""@en;
+	rdfs:subClassOf lang:HumanNaturalLanguageExpression.
+
+# syntactical element rdfs:subClassOf text:Structure: one or more words that are grammatically linked
+
+text:Sentence
+	a owl:Class;
+	rdfs:label "sentence"@en, "Satz"@de;
+	rdfs:comment """Syntactical unit as one or more grammatically linked words, typically a subject and predicate."""@en;
+	rdfs:subClassOf text:Structure.
+
+# text:WrittenSentence: orthographic element: one or more words starting with a capital letter and ending in a full stop or period, question mark, or exclamation mark
+
+text:Line
+	a owl:Class;
+	rdfs:label "text line"@en, "Textzeile"@de;
+	rdfs:comment """Line of text."""@en;
+	rdfs:subClassOf text:Structure, [
+		a owl:Restriction; owl:onProperty text:isLineOf; owl:someValuesFrom text:Expression], [
+		a owl:Restriction; owl:onProperty text:isLineOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isLineOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:Paragraph
+	a owl:Class;
+	rdfs:label "paragraph"@en, "Paragraf"@de;
+	rdfs:comment """Group of text lines."""@en;
+	rdfs:subClassOf text:Structure, [
+		a owl:Restriction; owl:onProperty text:isParagraphOf; owl:someValuesFrom text:Expression], [
+		a owl:Restriction; owl:onProperty text:isParagraphOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isParagraphOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:Prose
+	a owl:Class;
+	rdfs:label "prose"@en, "Prosa"@de;
+	rdfs:comment """Text structure with a natural flow of speech or grammatical structure."""@en;
+	rdfs:subClassOf text:Structure, [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Sentence], [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:NoteProse #* = prose?
+	a owl:Class;
+	rdfs:label "note prose"@en, "Prosanotat"@de;
+	rdfs:comment """Prose with note structure."""@en;
+	rdfs:subClassOf text:Structure.
+
+text:Verse
+	a owl:Class;
+	rdfs:label "verse"@en, "Vers"@de;
+	rdfs:comment """Text line with metrical structure."""@en;
+	rdfs:subClassOf text:Line, [
+		a owl:Restriction; owl:onProperty text:isVerseOf; owl:someValuesFrom litera:Poem], [ # OR litera:VerseNovel
+		a owl:Restriction; owl:onProperty text:isVerseOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isVerseOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:Strophe #* OR stanza OR verse - Vers
+	a owl:Class;
+	rdfs:label "strophe"@en, "Strophe"@de;
+	rdfs:comment """Paragraph of verses as part of a poem."""@en;
+	skos:note """The lyriks of a song can be structured as a poem with strophes."""@en;
+	rdfs:subClassOf text:Paragraph, [
+#		a owl:Restriction; owl:onProperty concept:isStropheOf; owl:someValuesFrom litera:Poem], [
+		a owl:Restriction; owl:onProperty concept:isStropheOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty concept:isStropheOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+
+text:FreeVerse
+	a owl:Class;
+	rdfs:label "free verse"@en, "reimloser Vers"@de;
+	rdfs:comment """Verse without rhyming."""@en;
+	rdfs:subClassOf text:Verse.
+
+text:RhymingVerse
+	a owl:Class;
+	rdfs:label "rhyming verse"@en, "gereimter Vers"@de;
+	rdfs:comment """Verse with rhyming."""@en;
+	rdfs:subClassOf text:Verse.
+
+# Prosaic Verse, Prosagedicht #*
+
+text:RhythmicProse #*
+	a owl:Class;
+	rdfs:label "rhythmic Prose"@en, "rhythmische Prosa"@de;
+	rdfs:comment """Prose ... ."""@en;
+	rdfs:subClassOf text:Structure.
+
+text:Note #*
+	a owl:Class;
+	rdfs:label "note"@en, "Notiz"@de;
+	rdfs:comment """Text with note structure."""@en;
+	rdfs:subClassOf text:Structure.
+
+text:LetterStructure #*
+	a owl:Class;
+	rdfs:label "letter structure"@en, "Brief-Struktur"@de;
+	rdfs:comment """Text with letter structure."""@en;
+	rdfs:subClassOf text:Structure.
+
+text:Draft
+	a owl:Class;
+	rdfs:label "draft"@en, "Entwurf"@de;
+	rdfs:comment """Developmental text expression."""@en;
+	rdfs:subClassOf human:CreationVersion.
+
 text:DiaryEntry
 	a owl:Class;
 	rdfs:label "diary entry"@en, "Tagebucheintrag"@de;
@@ -188,10 +289,24 @@ text:DiaryEntry
 text:LetterExpression
 	a owl:Class;
 	rdfs:label "letter expression"@en, "Brief-Expression"@de;
-	rdfs:comment """Written text expression formatted as a letter."""@en;
+	rdfs:comment """Text expression with a letter structure."""@en;
 	rdfs:subClassOf text:Expression, [
 		a owl:Restriction; owl:onProperty infocar:isInLetter; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:isInLetterValue; owl:cardinality "1"^^xsd:nonNegativeInteger].
+
+text:Commentary
+	a owl:Class;
+	rdfs:label "commentary"@en, "Kommentar"@de;
+	rdfs:comment """Text expression in the form of a series of comments as analysis, interpretation or explanation of something, especially another textual expression."""@en;
+	rdfs:subClassOf text:Expression.
+
+text:DiplomaticTranscription
+	a owl:Class;
+	rdfs:label "diplomatic transcription"@en, "diplomatische Umschrift"@de;
+	rdfs:comment """Transcription of a text with diacritical signs indicating visual textual properties to describe the textual state."""@en;
+	rdfs:subClassOf text:Derivative, [
+		a owl:Restriction; owl:onProperty text:isDiplomaticTranscriptionOfTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:isDiplomaticTranscriptionOfTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 text:Development
 	a owl:Class;
@@ -200,155 +315,6 @@ text:Development
 	rdfs:subClassOf human:Creating, [
 		a owl:Restriction; owl:onProperty event:hasStage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty event:hasStageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-text:Structure #*
-	a owl:Class;
-	rdfs:label "text structure"@en, "Textstruktur"@de;
-	rdfs:comment """."""@en;
-	rdfs:subClassOf cidoc:E33_Linguistic_Object, knora-base:Resource. # text:Expression ?
-
-text:Note #*
-	a owl:Class;
-	rdfs:label "note"@en, "Notiz"@de;
-	rdfs:comment """Text with note structure."""@en;
-	rdfs:subClassOf text:Structure.
-
-text:Commentary #*
-	a owl:Class;
-	rdfs:label "commentarius"@la, "commentary"@en, "Kommentar"@de;
-	rdfs:comment """Text expression in the form of a series of comments as analysis, interpretation or explanation of something, especially another textual expression."""@en;
-	rdfs:subClassOf text:Expression.
-
-text:NoteProse #* ?
-	a owl:Class;
-	rdfs:label "note prose"@en, "Prosanotat"@de;
-	rdfs:comment """Prose with note structure."""@en;
-	rdfs:subClassOf text:Structure.
-
-text:Line #* ? THE OTHER WAY AROUND: hasLine etc.
-	a owl:Class;
-	rdfs:label "text line"@en, "Textzeile"@de;
-	rdfs:comment """Line of text."""@en;
-	rdfs:subClassOf text:Structure, [
-#		a owl:Restriction; owl:onProperty text:isLineOf; owl:someValuesFrom text:Expression], [
-		a owl:Restriction; owl:onProperty text:isLineOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isLineOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-text:isLineOf
-	a owl:ObjectProperty;
-	rdfs:label "is text line of"@en, "ist Textzeile von"@de;
-	rdfs:comment """Relating a text line to a text it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOf;
-	rdfs:domain text:Line;
-	rdfs:range text:Expression;
-	knora-base:subjectClassConstraint text:Line;
-	knora-base:objectClassConstraint text:Expression.
-
-text:isLineOfValue
-	a owl:ObjectProperty;
-	rdfs:label "is text line of - statement"@en, "ist Textzeile von - Festlegung"@de;
-	rdfs:comment """Relating a text line to a reification statement of the relation between the line and a text it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue;
-	knora-base:subjectClassConstraint text:Line;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text:Paragraph
-	a owl:Class;
-	rdfs:label "paragraph"@en, "Paragraf"@de;
-	rdfs:comment """Group of text lines."""@en;
-	rdfs:subClassOf text:Structure.
-
-text:Verse #*
-	a owl:Class;
-	rdfs:label "verse"@en, "Vers"@de;
-	rdfs:comment """Text line with metrical structure."""@en;
-	rdfs:subClassOf text:Line, [
-#		a owl:Restriction; owl:onProperty text:isVerseOf; owl:someValuesFrom litera:Poem], [
-		a owl:Restriction; owl:onProperty text:isVerseOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isVerseOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-text:isVerseOf
-	a owl:ObjectProperty;
-	rdfs:label "is verse of"@en, "ist Vers von"@de;
-	rdfs:comment """Relating a verse to a poem it is part of."""@en;
-	rdfs:subPropertyOf text:isLineOf;
-	rdfs:domain text:Verse;
-	rdfs:range litera:Poem;
-	knora-base:subjectClassConstraint text:Verse;
-	knora-base:objectClassConstraint litera:Poem.
-
-text:isVerseOfValue
-	a owl:ObjectProperty;
-	rdfs:label "is verse of - statement"@en, "ist Vers von - Festlegung"@de;
-	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a poem it is part of."""@en;
-	rdfs:subPropertyOf text:isLineOfValue;
-	knora-base:subjectClassConstraint text:Verse;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text:Strophe #* OR verse - Vers OR stanza - Strophe
-	a owl:Class;
-	rdfs:label "strophe"@en, "Strophe"@de;
-	rdfs:comment """Group of lines forming a section of a poem."""@en; #* Poem also as song?
-	rdfs:subClassOf text:Paragraph, [ #*
-#		a owl:Restriction; owl:onProperty concept:isStropheOf; owl:someValuesFrom litera:Poem], [
-		a owl:Restriction; owl:onProperty concept:isStropheOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty concept:isStropheOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
-
-text:isStropheOf
-	a owl:ObjectProperty;
-	rdfs:label "is strophe of"@en, "ist Strophe von"@de;
-	rdfs:comment """Relating a strophe to a poem it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOf;
-	rdfs:domain text:Strophe;
-	rdfs:range litera:Poem;
-	knora-base:subjectClassConstraint text:Strophe;
-	knora-base:objectClassConstraint litera:Poem.
-
-text:isStropheOfValue
-	a owl:ObjectProperty;
-	rdfs:label "is strophe of - statement"@en, "ist Strophe von - Festlegung"@de;
-	rdfs:comment """Relating a strophe to a reification statement of the relation between the strophe and a poem it is part of."""@en;
-	rdfs:subPropertyOf concept:isPartOfValue;
-	knora-base:subjectClassConstraint text:Strophe;
-	knora-base:objectClassConstraint knora-base:LinkValue.
-
-text:FreeVerse #*
-	a owl:Class;
-	rdfs:label "free verse"@en, "reimlose Verse"@de;
-	rdfs:comment """Verse without rhyming."""@en;
-	rdfs:subClassOf text:Verse.
-
-text:RhymingVerse #*
-	a owl:Class;
-	rdfs:label "rhyming verse"@en, "gereimte Verse"@de;
-	rdfs:comment """Verse with rhyming."""@en;
-	rdfs:subClassOf text:Verse.
-
-# Prosaic Verse, Prosagedicht #*
-
-text:VerseProse # = RhythmicProse ? #*
-	a owl:Class;
-	rdfs:label "verse prose"@en, "Verse-Prosa"@de;
-	rdfs:comment """Narrative poetry with novel-length."""@en;
-	rdfs:subClassOf text:Verse, text:Prose. # ?
-
-text:RhythmicProse #*
-	a owl:Class;
-	rdfs:label "rhythmic Prose"@en, "rhythmische Prosa"@de;
-	rdfs:comment """Prose ... ."""@en;
-	rdfs:subClassOf text:Structure.
-
-text:LetterStructure #*
-	a owl:Class;
-	rdfs:label "letter structure"@en, "Brief-Struktur"@de;
-	rdfs:comment """Text with letter structure."""@en;
-	rdfs:subClassOf text:Structure.
-
-text:Draft #* ONLY text
-	a owl:Class;
-	rdfs:label "draft"@en, "Entwurf"@de;
-	rdfs:comment """Developmental text expression."""@en;
-	rdfs:subClassOf human:CreationVersion.
 
 #
 # PROPERTIES
@@ -367,6 +333,8 @@ text:hasName
 	a owl:ObjectProperty;
 	rdfs:label "has name"@en, "hat Name"@de;
 	rdfs:comment """Relating a resource to a name (as object) as a textual identifier of the resource."""@en;
+	rdfs:domain rdfs:Resource;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf text:hasText; # rdfs:label
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:TextValue;
@@ -757,6 +725,97 @@ text:hasRedactorValue
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+text:isLineOf
+	a owl:ObjectProperty;
+	rdfs:label "is text line of"@en, "ist Textzeile von"@de;
+	rdfs:comment """Relating a text line to a text it is part of."""@en;
+	rdfs:domain text:Line;
+	rdfs:range text:Expression;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text:Line;
+	knora-base:objectClassConstraint text:Expression.
+
+text:isLineOfValue
+	a owl:ObjectProperty;
+	rdfs:label "is text line of - statement"@en, "ist Textzeile von - Festlegung"@de;
+	rdfs:comment """Relating a text line to a reification statement of the relation between the line and a text it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text:Line;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:isVerseOf
+	a owl:ObjectProperty;
+	rdfs:label "is verse of"@en, "ist Vers von"@de;
+	rdfs:comment """Relating a verse to a poem it is part of."""@en;
+	rdfs:domain text:Verse;
+	rdfs:range litera:Poem;
+	rdfs:subPropertyOf text:isLineOf;
+	knora-base:subjectClassConstraint text:Verse;
+	knora-base:objectClassConstraint litera:Poem.
+
+text:isVerseOfValue
+	a owl:ObjectProperty;
+	rdfs:label "is verse of - statement"@en, "ist Vers von - Festlegung"@de;
+	rdfs:comment """Relating a verse to a reification statement of the relation between the verse and a poem it is part of."""@en;
+	rdfs:subPropertyOf text:isLineOfValue;
+	knora-base:subjectClassConstraint text:Verse;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:isParagraphOf
+	a owl:ObjectProperty;
+	rdfs:label "is paragraph of"@en, "ist Paragraf von"@de;
+	rdfs:comment """Relating a paragraph to a text it is part of."""@en;
+	rdfs:domain text:Paragraph;
+	rdfs:range text:Expression;
+	rdfs:subPropertyOf concept:isPartOf;
+	knora-base:subjectClassConstraint text:Paragraph;
+	knora-base:objectClassConstraint text:Expression.
+
+text:isParagraphOfValue
+	a owl:ObjectProperty;
+	rdfs:label "is paragraph of - statement"@en, "ist Paragraf von - Festlegung"@de;
+	rdfs:comment """Relating a paragraph to a reification statement of the relation between the paragraph and a text it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text:Paragraph;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:isStropheOf
+	a owl:ObjectProperty;
+	rdfs:label "is strophe of"@en, "ist Strophe von"@de;
+	rdfs:comment """Relating a strophe to a poem it is part of."""@en;
+	rdfs:domain text:Strophe;
+	rdfs:range litera:Poem;
+	rdfs:subPropertyOf text:isParagraphOf;
+	knora-base:subjectClassConstraint text:Strophe;
+	knora-base:objectClassConstraint litera:Poem.
+
+text:isStropheOfValue
+	a owl:ObjectProperty;
+	rdfs:label "is strophe of - statement"@en, "ist Strophe von - Festlegung"@de;
+	rdfs:comment """Relating a strophe to a reification statement of the relation between the strophe and a poem it is part of."""@en;
+	rdfs:subPropertyOf concept:isPartOfValue;
+	knora-base:subjectClassConstraint text:Strophe;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+text:hasStrophe # check usefulness of inverse property
+	a owl:ObjectProperty;
+	rdfs:label "has strophe"@en, "hat Strophe"@de;
+	rdfs:comment """Relating a poem to a strophe it contains."""@en;
+	rdfs:domain litera:Poem;
+	rdfs:range text:Strophe;
+	rdfs:subPropertyOf knora-base:hasLinkTo; #* text:hasParagraph
+	owl:inverseOf text:isStropheOf;
+	knora-base:subjectClassConstraint text:Poem;
+	knora-base:objectClassConstraint text:Strophe.
+
+text:hasStropheValue
+	a owl:ObjectProperty;
+	rdfs:label "has strophe - statement"@en, "hat Strophe - Festlegung"@de;
+	rdfs:comment """Relating a poem to a reification statement of the relation between the poem and a strophe it contains."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkTo; #* text:hasParagraphValue
+	knora-base:subjectClassConstraint text:Poem;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 text:hasReferenceText
 	a owl:ObjectProperty;
 	rdfs:label "has reference text"@en, "hat Bezugstext"@de;
@@ -772,11 +831,3 @@ text:hasReferenceTextValue
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
 	knora-base:subjectClassConstraint text:Expression;
 	knora-base:objectClassConstraint knora-base:LinkValue.
-
-#text:hasStrophe # structure
-#	a owl:ObjectProperty;
-#	rdfs:label "has strophe"@en, "hat Strophe"@de;
-#	rdfs:comment """Relating a poem to having a strophe or not."""@en;
-#	rdfs:subPropertyOf knora-base:hasLinkTo;
-#	knora-base:subjectClassConstraint text:Poem;
-#	knora-base:objectClassConstraint text:Strophe.

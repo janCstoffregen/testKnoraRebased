@@ -20,7 +20,8 @@
 	a owl:Ontology;
 	dct:title "An ontology about human"@en;
 	dct:description """Formal description of a human, general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, MD, software developer, NIE-INE, Basel University, Switzerland"@en.
+	dct:creator "Hans Cools, MD, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -141,10 +142,11 @@ human:Creator
 human:Creating
 	a owl:Class;
 	rdfs:label "human creating"@en, "menschliche Kreierung"@de;
-	rdfs:comment """Action by a person of bringing something into existence."""@en;
-	rdfs:subClassOf human:Action, event:Creating
-#		, [
-#		a owl:Restriction; owl:onProperty agent:hasAgent; owl:someValuesFrom agent:Creator]
+	rdfs:comment """Action by a person bringing something into existence."""@en;
+	rdfs:subClassOf human:Action, event:Creating #, [
+#		a owl:Restriction; owl:onProperty agent:hasCreator; owl:someValuesFrom agent:Creator], [
+#		a owl:Restriction; owl:onProperty event:hasStartDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty event:hasEndDate; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
 human:Creation

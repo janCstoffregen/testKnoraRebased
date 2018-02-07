@@ -20,7 +20,8 @@
 	a owl:Ontology;
 	dct:title "An ontology about language"@en;
 	dct:description """Formal description of language, general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en.
+	dct:creator "Hans Cools, MD, knowledge engineer, ontologist, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -43,13 +44,14 @@ lang:HumanNaturalLanguage #* Is a human natural language a human creation?
 	rdfs:label "human natural language"@en, "menschliche naturliche Sprache"@de;
 	rdfs:comment """Language naturally evolved in humans."""@en;
 	skos:note """Excluded is formal language, e.g. computer programming language."""@en;
-	rdfs:subClassOf lang:HumanLanguage. #, cidoc:E56_Language.
+	rdfs:subClassOf lang:HumanLanguage.
 
-lang:HumanNaturalLanguageExpression #* information
+lang:HumanNaturalLanguageExpression
 	a owl:Class;
 	rdfs:label "human natural language expression"@en, "menschliche naturliche sprachliche Äusserung"@de;
 	rdfs:comment """Expression in a human natural language."""@en;
-	rdfs:subClassOf concept:SymbolicConcept, cidoc:E33_Linguistic_Object, [
+	skos:note """Different from the FRBROO based concept:Expression."""@en;
+	rdfs:subClassOf concept:Information, cidoc:E33_Linguistic_Object, [
 		a owl:Restriction; owl:onProperty lang:expressedInNaturalLanguage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty lang:expressedInNaturalLanguageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty lang:expressedInDialect; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -94,12 +96,6 @@ lang:MachineTranslation
 	rdfs:label "machine translation"@en, "maschinelle Übersetzung"@de;
 	rdfs:comment """Translation done by a computer."""@en;
 	rdfs:subClassOf event:Output.
-
-lang:Sentence #* instead of in text - structure
-	a owl:Class;
-	rdfs:label "sentence"@en, "Satz"@de;
-	rdfs:comment """Syntactical language unit."""@en;
-	rdfs:subClassOf lang:HumanNaturalLanguageExpression.
 
 #
 # PROPERTIES

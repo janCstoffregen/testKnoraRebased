@@ -403,11 +403,11 @@ kuno-raeber:NachlassPublication
 	a owl:Class;
 	rdfs:label "nachlass publication"@en, "Nachlass-Publication"@de;
 	rdfs:comment """Publication of a Nachlass of Kuno Raeber."""@en;
-	rdfs:subClassOf publish:NachlassPublication, infocar:Volume, infocar:Carrier, publish:PrintedPublication, [
+	rdfs:subClassOf publish:NachlassPublication, infocar:Volume, publish:PrintedPublication, [
 		a owl:Restriction; owl:onProperty publish:hasTitle; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasDate; owl:cardinality "1"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty publish:hasPublisherDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty infocar:hasVolumeNumber; owl:cardinality "1"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:volumeHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 #
 # PROPERTIES

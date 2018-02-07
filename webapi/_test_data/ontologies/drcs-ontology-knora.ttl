@@ -16,7 +16,7 @@
 	dct:title "An ontology for the Digital Repertory of Commentaries on Peter Lombard’s Sentences"@en;
 	dct:description """Formal description of specific concepts in the scientific study of Petrus Lombardus as in the Digital Repertory of Commentaries on Peter Lombard’s Sentences (DRCS)."""@en;
 	dct:creator "Hans Cools, MD, software developer, NIE, Basel University, Switzerland"@en;
-	dct:contributor "Prof. Dr. Ueli Zahnd, History of Christianity, University of Basel, Switzerland"@en;
+	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en;
 	rdfs:seeAlso <https://de.wikipedia.org/wiki/Friedrich_Stegmüller>.
 
 #

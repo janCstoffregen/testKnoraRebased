@@ -19,7 +19,8 @@
 	a owl:Ontology;
 	dct:title "An ontology about information carrier"@en;
 	dct:description """Formal description of information carrier in broadest sense, general subclasses, related classes, and properties."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -60,15 +61,23 @@ infocar:Page
 infocar:Book
 	a owl:Class;
 	rdfs:label "book"@en, "Buch"@de;
-	rdfs:comment """Set of leafs, e.g. sheets of paper or parchment, fastened together along one side, often with a front and back cover."""@en;
+	rdfs:comment """Set of leafs, e.g. sheets of paper or parchment, binded together along one side, with a front and back cover."""@en;
 	rdfs:subClassOf infocar:Carrier.
+
+infocar:Binding
+	a owl:Class;
+	rdfs:label "binding"@en, "Einband"@de;
+	rdfs:comment """Material holding the leafs and covers of a book together."""@en;
+	rdfs:subClassOf infocar:Carrier, [
+		a owl:Restriction; owl:onProperty infocar:isBindingOf; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty infocar:isBindingOfValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Volume
 	a owl:Class;
 	rdfs:label "volume"@en, "Band"@de;
-	rdfs:comment """ One of the books carrying an expression materialized in more than one book."""@en;
+	rdfs:comment """One of the books carrying an expression materialized in more than one book."""@en;
 	rdfs:subClassOf infocar:Book, [
-		a owl:Restriction; owl:onProperty infocar:hasVolumeNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty infocar:volumeHasNumber; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 infocar:Print
 	a owl:Class;
@@ -165,7 +174,7 @@ infocar:Typescript
 	rdfs:comment """Carrier of a typewritten text expression."""@en;
 	rdfs:subClassOf infocar:Carrier, frbroo:F4_Manifestation_Singleton.
 
-infocar:Transcript
+infocar:Transcript #*
 	a owl:Class;
 	rdfs:label "transcript"@en, "Abschrift"@de;
 	rdfs:comment """Carrier of a reproduced text by any method, e.g. handwriting, typewriting, machine copying, printing, digitizing."""@en;
@@ -177,7 +186,7 @@ infocar:Diary
 	rdfs:comment """information carrier with periodically, usually daily, described personal experiences and observations."""@en;
 	rdfs:subClassOf infocar:Carrier.
 
-infocar:Letter #* sendable
+infocar:Letter
 	a owl:Class;
 	rdfs:label "letter"@en, "Brief"@de;
 	rdfs:comment """Written text on a leaf intended to be sent from (a) person(s) or (an) Organisation(s) to another one, e.g. through a postal system."""@en;
@@ -187,7 +196,7 @@ infocar:Letter #* sendable
 		a owl:Restriction; owl:onProperty infocar:hasReceiver; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty infocar:hasReceiverValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-infocar:Postcard #* sendable
+infocar:Postcard
 	a owl:Class;
 	rdfs:label "postcard"@en, "Postkarte"@de;
 	rdfs:comment """Card with one side, usually with a printed structure, used for writing a message, an address and applying a postage stamp, to be sent through a postal system."""@en;
@@ -342,6 +351,22 @@ infocar:isLeafOfValue
 	knora-base:subjectClassConstraint infocar:Leaf;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
+infocar:isBindingOf
+	a owl:ObjectProperty;
+	rdfs:label "is binding of"@en, "ist Einband von"@de;
+	rdfs:comment """Relating a binding to a book it is part of."""@en;
+	rdfs:subPropertyOf physical:isPartOf;
+	knora-base:subjectClassConstraint infocar:Binding;
+	knora-base:objectClassConstraint infocar:Book.
+
+infocar:isBindingOfValue
+	a owl:ObjectProperty;
+	rdfs:label "is binding of - statement"@en, "ist Einband von - Festlegung"@de;
+	rdfs:comment """Relating a binding to a reification statement of the relation between the binding and a book it is part of."""@en;
+	rdfs:subPropertyOf physical:isPartOfValue;
+	knora-base:subjectClassConstraint infocar:Binding;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 #infocar:hasPage
 #	a owl:ObjectProperty;
 #	rdfs:label "has page"@en;
@@ -366,15 +391,13 @@ infocar:isLeafOfValue
 #	knora-base:subjectClassConstraint concept:Expression; # owl:propertyChainAxiom (infocar:isOnPage x:hasNumber)
 #	knora-base:objectClassConstraint knora-base:IntValue.
 
-#* infocar:volumeHasNumber
-infocar:hasVolumeNumber
+infocar:volumeHasNumber
 	a owl:ObjectProperty;
-	rdfs:label "has volume number"@en, "hat Band-Nummer"@de;
+	rdfs:label "volume has number"@en, "Band hat Nummer"@de;
 	rdfs:comment "Relating a volume to its sequence number."@en;
 	rdfs:subPropertyOf knora-base:hasValue;
 	knora-base:subjectClassConstraint infocar:Volume;
-	knora-base:objectClassConstraint knora-base:TextValue;
-	salsah-gui:guiElement salsah-gui:Richtext.
+	knora-base:objectClassConstraint knora-base:IntValue.
 
 infocar:isInManuscript
 	a owl:ObjectProperty;

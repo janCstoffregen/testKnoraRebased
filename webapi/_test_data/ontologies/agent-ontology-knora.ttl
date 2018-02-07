@@ -15,7 +15,8 @@
 	a owl:Ontology;
 	dct:title "An ontology about agent"@en;
 	dct:description """Formal description of an agent, general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -90,6 +91,26 @@ agent:UserCredential
 # PROPERTIES
 #
 
+agent:hasAgent
+	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/agent#>;
+	rdfs:label "has agent"@en, "hat Agent"@de;
+	rdfs:comment """Relating an action to an agent acting in it."""@en;
+	rdfs:domain event:Action;
+	rdfs:range agent:Agent;
+	rdfs:subPropertyOf knora-base:hasLinkTo;
+	knora-base:subjectClassConstraint event:Action;
+	knora-base:objectClassConstraint agent:Agent.
+
+agent:hasAgentValue
+	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/agent#>;
+	rdfs:label "has agent - statement"@en, "hat Agent - Festlegung"@de;
+	rdfs:comment """Relating an action to a reification statement of the relation between the action and an agent acting in it."""@en;
+	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint event:Action;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
 agent:actsIn
 	a owl:ObjectProperty;
 	rdfs:isDefinedBy <http://www.knora.org/ontology/agent#>;
@@ -97,6 +118,7 @@ agent:actsIn
 	rdfs:comment """Relating an agent to an action the agent is acting in."""@en;
 	rdfs:domain agent:Agent;
 	rdfs:range event:Action;
+	owl:inverseOf agent:hasAgent;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint agent:Agent;
 	knora-base:objectClassConstraint event:Action.

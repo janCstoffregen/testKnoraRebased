@@ -14,32 +14,34 @@
 	dct:title "An ontology about catholic organisation"@en;
 	dct:description """Formal description of catholic organisation, general subclasses, related classes, properties, and instances."""@en;
 	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Prof. Dr. Ueli Zahnd, History of Christianity, University of Basel, Switzerland"@en.
+	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en.
 
 #
 # CLASSES
 #
 
-cathorg:CatholicOrganisation
+#* Is the catholic community as a whole an organisation?
+
+cathorg:Organisation
 	a owl:Class;
-#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "catholic organisation"@en;
-	rdfs:comment """Organisation following a catholic belief."""@en; # considering an organisation as agent, able to follow a belief
+	rdfs:comment """Organisation following a catholic belief."""@en;
 	rdfs:subClassOf org:ReligiousOrganisation.
 
-cathorg:Order
+cathorg:Order #* ? all Roman Catholic Church
 	a owl:Class;
-#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "catholic order"@en, "katholische Orden"@de;
-	rdfs:comment """Catholic organisation whose member is male and celibatarian, founded... ."""@en; #*
-	rdfs:subClassOf cathorg:CatholicOrganisation.
+	rdfs:comment """Catholic organisation whose member is male and celibatarian, founded by... ."""@en; #*
+	rdfs:subClassOf cathorg:Organisation.
 
 cathorg:SecularClergy
 	a owl:Class;
-#	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/catholic-organisation#>;
 	rdfs:label "secular clergy"@en;
-	rdfs:comment """Person following a catholic belief, not belonging to a catholic institute."""@en; #*
-	rdfs:subClassOf cathorg:CatholicOrganisation. # Is catholic community as a whole an organisation ? #*
+	rdfs:comment """Catholic organisation whose member does not belong to a catholic order."""@en;
+	rdfs:subClassOf cathorg:Organisation.
 
 #
 # PROPERTIES

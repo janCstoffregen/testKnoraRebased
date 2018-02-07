@@ -11,7 +11,7 @@
 	dct:title "An ontology about philosophy"@en;
 	dct:description """Formal description of philosophy, general subclasses, related classes, properties, and instances."""@en;
 	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Prof. Dr. Ueli Zahnd, History of Christianity, University of Basel, Switzerland"@en.
+	dct:contributor "Prof. Dr. Ueli Zahnd, Faculty of Theology, University of Basel, Switzerland"@en, "Gabriel Müller, Faculty of Theology, University of Basel, Switzerland"@en.
 
 #
 # CLASSES
@@ -20,17 +20,15 @@
 philo:Philosophy
 	a owl:Class;
 	rdfs:label "philosophy"@en, "Philosophie"@de;
-	rdfs:comment """."""@en;
+	rdfs:comment """."""@en; #*
 	rdfs:subClassOf concept:ThoughtBody. #*
 
 philo:Metaphysics
 	a owl:Class;
 	rdfs:label "metaphysics"@en, "Metaphysik"@de;
-	rdfs:comment """."""@en;
+	rdfs:comment """."""@en; #*
 	rdfs:subClassOf philo:Philosophy. #*
 
-# philo:ChristianPhilosophy
+#* philo:ChristianPhilosophy ?
 
-# philo:ScholasticPhilosophy ?
-
-# concept:CriticalThoughtMethod part/SC of philosophy ?
+#* philo:ScholasticPhilosophy ?

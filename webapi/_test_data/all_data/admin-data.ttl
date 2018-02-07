@@ -962,3 +962,27 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 	knora-base:isInProject <http://rdfh.ch/projects/organisation>;
 	knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
 	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/organisation>.
+
+#
+# Teaching
+#
+
+<http://rdfh.ch/projects/teaching> a knora-base:knoraProject;
+	knora-base:projectShortname "teaching"^^xsd:string;
+	knora-base:projectLongname "An ontology about teaching"^^xsd:string;
+	knora-base:projectDescription "Formal description of teaching, general subclasses, related classes and properties."^^xsd:string;
+	knora-base:projectOntology <http://www.knora.org/ontology/teaching>;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:hasSelfJoinEnabled "false"^^xsd:boolean.
+
+<http://rdfh.ch/users/hansCools> a knora-base:User;
+	knora-base:userid "hansCools"^^xsd:string;
+	knora-base:familyName "Cools"^^xsd:string;
+	knora-base:givenName "Hans"^^xsd:string;
+	knora-base:password "$e0801$FGl9FDIWw+D83OeNPGmD9u2VTqIkJopIQECgmb2DSWQLS0TeKSvYoWAkbEv6KxePPlCI3CP9MmVHuvnWv8/kag==$mlegCYdGXt+ghuo8i0rLjgOiNnGDW604Q5g/v7zwBPU="^^xsd:string;
+	knora-base:email "hans.cools@unibas.ch"^^xsd:string;
+	knora-base:preferredLanguage "de"^^xsd:string;
+	knora-base:status "true"^^xsd:boolean;
+	knora-base:isInProject <http://rdfh.ch/projects/teaching>;
+	knora-base:isInSystemAdminGroup "false"^^xsd:boolean;
+	knora-base:isInProjectAdminGroup <http://rdfh.ch/projects/teaching>.

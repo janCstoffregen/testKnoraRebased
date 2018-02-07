@@ -22,37 +22,35 @@
 	dct:title "An ontology about concept"@en;
 	dct:description """Formal description of concept, its general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
-	dct:contributor "Roberta Padlina, NIE-INE, Basel University, Switzerland"@en.
+	dct:contributor "Roberta Padlina, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 
 #
 # CLASSES
 #
 
-litera:Literature #* NOT only text:WrittenText, e.g. audio book
+litera:Literature
 	a owl:Class;
 	rdfs:label "literature"@en, "Literatur"@de;
-	rdfs:comment """Literary text expression as art."""@en;
-	rdfs:subClassOf text:Expression. #*
+	rdfs:comment """Written text expression as art."""@en;
+	rdfs:subClassOf text:Expression, text:WrittenText.
 
-litera:Poetry # NOT all poetry is literature. # Lyric - Lyrik, Poesie, Poetik, Dichtung # OR poetry ontologie
+litera:Lyric
 	a owl:Class;
-	rdfs:label "poetry"@en, "Poetik"@de;
-	rdfs:comment """"""@en;
+	rdfs:label "lyric"@en, "Lyrik"@de; # synonyms: poetry - Poetik, Poesie, Dichtung
+	rdfs:comment """Literature in vers"""@en;
 	rdfs:subClassOf litera:Literature, [
-#*		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Verse], [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Verse], [
 		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-litera:Prose # NOT all prose is literature.
+litera:Epic
 	a owl:Class;
-	rdfs:label "prose"@en, "Prosa"@de;
-	rdfs:comment """Literature Grammatical text without metrical structure."""@en;
-	rdfs:subClassOf litera:Literature, [
-#*		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom lang:Sentence], [
-		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+	rdfs:label "epic"@en, "Epik"@de;  # synonyms: prose - Prosa
+	rdfs:comment """Narrative literature without metrical structure."""@en;
+	rdfs:subClassOf litera:Literature.
 
-# litera:Drama
+# litera:Drama - Dramatik
 
 litera:Fiction
 	a owl:Class;
@@ -69,20 +67,26 @@ litera:NonFiction
 litera:Poem
 	a owl:Class;
 	rdfs:label "poem"@en, "Gedicht"@de;
-	rdfs:comment """Text epression in verse."""@en, """Text-Epression in Versform."""@de; #*
-	rdfs:subClassOf litera:Poetry.
+	rdfs:comment """Lyric expression."""@en, """lyrische Expression."""@de; #*
+	rdfs:subClassOf litera:Lyric.
 
 litera:VerseNovel
 	a owl:Class;
 	rdfs:label "verse novel"@en, "Versroman"@de;
-	rdfs:comment """Narrative poetry with novel-length."""@en;
-	rdfs:subClassOf litera:Poetry, litera:Fiction.
+	rdfs:comment """Epic in verse and with novel-length."""@en;
+	rdfs:subClassOf litera:Epic, litera:Fiction, [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Verse], [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-litera:Novel # NOT all novels are literature.
+litera:Novel
 	a owl:Class;
 	rdfs:label "novel"@en, "Roman"@de;
-	rdfs:comment """Narrative prose fiction."""@en;
-	rdfs:subClassOf litera:Prose, litera:Fiction.
+	rdfs:comment """Fiction epic in prose."""@en;
+	rdfs:subClassOf litera:Epic, litera:Fiction, [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:someValuesFrom text:Prose], [
+		a owl:Restriction; owl:onProperty text:hasStructure; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasStructureValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
 litera:Poet
 	a owl:Class;
@@ -102,12 +106,12 @@ litera:Novelist
 # PROPERTIES
 #
 
-litera:hasPoet #*
+litera:hasPoet
 	a owl:ObjectProperty;
 	rdfs:label "has poet"@en, "hat Dichter"@de;
 	rdfs:comment """Relating a poem to a person who authored it."""@en;
-#	rdfs:domain litera:Poem;
-#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom litera:Poet]];
+	rdfs:domain litera:Poem;
+	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom litera:Poet]];
 	rdfs:subPropertyOf text:hasAuthor;
 	knora-base:subjectClassConstraint litera:Poem;
 	knora-base:objectClassConstraint human:Person.

@@ -18,7 +18,8 @@
 	a owl:Ontology;
 	dct:title "An ontology about publishing"@en;
 	dct:description """Formal description of publishing, its general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, ontologist and software developer, NIE-INE, Basel University, Switzerland"@en.
+	dct:creator "Hans Cools, ontologist and software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -67,6 +68,12 @@ publish:Publisher
 	rdfs:label "publisher"@en, "Herausgeber"@de;
 	rdfs:comment """Role of an agent as publisher."""@en;
 	rdfs:subClassOf agent:Role.
+
+publish:NewspaperPublisher
+	a owl:Class;
+	rdfs:label "newspaper publisher"@en, "Zeitungsverleger"@de;
+	rdfs:comment """Publisher of a newspaper."""@en;
+	rdfs:subClassOf publish:Publisher.
 
 publish:Publication
 	a owl:Class;

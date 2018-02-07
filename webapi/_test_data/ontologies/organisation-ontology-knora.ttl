@@ -17,7 +17,8 @@
 	a owl:Ontology;
 	dct:title "An ontology about human organisation"@en;
 	dct:description """Formal description of organisation involving humans, general subclasses, related classes and properties."""@en;
-	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en.
+	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
+	dct:publisher "Basel University, Switzerland"@en.
 
 #
 # CLASSES
@@ -26,7 +27,7 @@
 org:Organisation
 	a owl:Class;
 	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
-	rdfs:label "person organisation"@en, "Personensorganisation"@en; #*
+	rdfs:label "person organisation"@en, "Personensorganisation"@de; #*
 	rdfs:comment """Organized group of persons."""@en;
 	skos:note """An organisation can be a legal person."""@en;
 	rdfs:subClassOf agent:Organisation, human:Group, [
@@ -43,14 +44,24 @@ org:Role
 	rdfs:subClassOf agent:Role;
 	owl:disjointWith foaf:Agent.
 
-# admin, eg. municipality
+org:Administration
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
+	rdfs:label "administration"@en, "Verwaltung"@de;
+	rdfs:comment """Organisation administering a group of people on any level, e.g. international, national, regional or city level."""@en;
+	rdfs:subClassOf org:Organisation.
 
-# org:Company
+org:Company
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
+	rdfs:label "company"@en, "Betrieb"@de;
+	rdfs:comment """Organisation having primarily an economical role."""@en;
+	rdfs:subClassOf org:Organisation.
 
 org:ReligiousOrganisation #* OR to group religions
 	a owl:Class;
 	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
-	rdfs:label "religious organisation"@en, "religiöse Organisation"@en;
+	rdfs:label "religious organisation"@en, "religiöse Organisation"@de;
 	rdfs:comment """Organisation of religious persons."""@en;
 	rdfs:subClassOf org:Organisation.
 
@@ -59,7 +70,7 @@ org:ReligiousPerson
 	rdfs:label "religious person"@en, "religiöse Person"@de, "personne réligieuse"@fr; # "persona"@it;
 	rdfs:comment """Person having religious faith or believing."""@en;
 	rdfs:subClassOf human:Person #, [
-#		a owl:Restriction; owl:onProperty org:isMemberOfReligiousOrganisation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # specific properties
+#		a owl:Restriction; owl:onProperty org:isMemberOfReligiousOrganisation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [ # specific property
 #		a owl:Restriction; owl:onProperty org:isMemberOfReligiousOrganisationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]
 		.
 
@@ -109,6 +120,7 @@ org:hasRoleValue
 
 org:isMemberOfOrganisation
 	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
 	rdfs:label "is member of organisation"@en, "ist Mitglied einer Organisation"@de;
 	rdfs:comment """Relating a person to an organisation the person is a member of."""@en;
 	rdfs:domain human:Person;
@@ -119,8 +131,49 @@ org:isMemberOfOrganisation
 
 org:isMemberOfOrganisationValue
 	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
 	rdfs:label "is member of organisation - statement"@en, "ist Mitglied einer Organisation - Festlegung"@de;
 	rdfs:comment """Relating a person to a reification statement of the relation between the person and an organisation the person is a member of."""@en;
 	rdfs:subPropertyOf human:isMemberOfGroupValue;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+org:isMemberOfReligiousOrganisation
+	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
+	rdfs:label "is member of religious organisation"@en, "ist Mitglied einer religiösen Organisation"@de;
+	rdfs:comment """Relating a person to a religious organisation the person is a member of."""@en;
+	rdfs:domain human:Person;
+	rdfs:range org:Organisation;
+	rdfs:subPropertyOf org:isMemberOfOrganisation;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint org:ReligiousOrganisation.
+
+org:isMemberOfReligiousOrganisationValue
+	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
+	rdfs:label "is member of religious organisation - statement"@en, "ist Mitglied einer religiösen Organisation - Festlegung"@de;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and a religious organisation the person is a member of."""@en;
+	rdfs:subPropertyOf org:isMemberOfOrganisationValue;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+org:isMemberAdministration
+	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
+	rdfs:label "is member of administration"@en, "ist Mitglied einer Verwaltung"@de;
+	rdfs:comment """Relating a person to an administration the person is a member of."""@en;
+	rdfs:domain human:Person;
+	rdfs:range org:Administration;
+	rdfs:subPropertyOf org:isMemberOfOrganisation;
+	knora-base:subjectClassConstraint human:Person;
+	knora-base:objectClassConstraint org:Organisation.
+
+org:isMemberOfAdministrationValue
+	a owl:ObjectProperty;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
+	rdfs:label "is member of organisation - statement"@en, "ist Mitglied einer Organisation - Festlegung"@de;
+	rdfs:comment """Relating a person to a reification statement of the relation between the person and an organisation the person is a member of."""@en;
+	rdfs:subPropertyOf org:isMemberOfOrganisationValue;
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
