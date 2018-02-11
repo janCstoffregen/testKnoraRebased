@@ -67,11 +67,11 @@ human:Person
 		a owl:Restriction; owl:onProperty org:isMemberOfOrganisation; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty org:isMemberOfOrganisationValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
 
-human:PersonLike # can also be :Fantasy
+human:PersonLike
 	a owl:Class;
 	rdfs:label "person-like resource"@en, "Person-ähnliche Entität"@de;
 	rdfs:comment """Person like resource having non-human features."""@en;
-	skos:note """E.g. Jesus is for a believer a person having non-human features."""@en;
+	skos:note """E.g. Jesus is for a believer a person also having non-human features."""@en;
 	rdfs:subClassOf knora-base:Resource. #* human:Role
 
 human:Group
@@ -83,7 +83,7 @@ human:Group
 human:Action
 	a owl:Class;
 	rdfs:label "human action"@en, "menschliche Aktion"@de;
-	rdfs:comment """Action with a human as agent."""@en;
+	rdfs:comment """Action with a human agent."""@en;
 	rdfs:subClassOf event:Action.
 
 human:PersonLife
@@ -98,8 +98,8 @@ human:BiologicalSex # :subClassOf :Trait
 	a owl:Class;
 	rdfs:label "human biological sex"@en, "menschliches biologisches Geschlecht"@de;
 	rdfs:comment """Biological trait of a human based on reproductive functions."""@en;
-	rdfs:subClassOf knora-base:Resource.
-#	owl:disjointUnionOf (human:FemaleSex human:MaleSex human:Intersexual).
+	rdfs:subClassOf knora-base:Resource;
+	owl:disjointUnionOf (human:FemaleSex human:MaleSex human:Intersexual).
 
 human:Female
 	a owl:Class;
@@ -111,7 +111,7 @@ human:Male
 	a owl:Class;
 	rdfs:label "human male"@en, "menschlich männlich"@de;
 	rdfs:comment """Being of a human male sex."""@en;
-#	skos:note """In adulthood producing spermatozoa for fertilizing female ova."""@en;
+	skos:note """In adulthood producing spermatozoa for fertilizing female ova."""@en;
 	rdfs:subClassOf human:BiologicalSex.
 
 human:Intersexual
@@ -119,7 +119,6 @@ human:Intersexual
 	rdfs:label "human intersexual"@en, "menschlich intersexual"@de;
 	rdfs:comment """Being of a sex that is neither male nor female, with biological characteristics of both."""@en;
 	rdfs:subClassOf human:BiologicalSex.
-#	owl:disjointWith organism:Pregnant.
 
 human:Ability
 	a owl:Class;
@@ -135,29 +134,27 @@ human:Role
 
 human:Creator
 	a owl:Class;
-	rdfs:label "human creator"@en, "menschliche Erschaffer"@de;
+	rdfs:label "creator"@en, "Erschaffer"@de;
 	rdfs:comment """Role of a person creating something."""@en;
 	rdfs:subClassOf human:Role.
 
 human:Creating
 	a owl:Class;
-	rdfs:label "human creating"@en, "menschliche Kreierung"@de;
+	rdfs:label "person's creating"@en, "Kreierung einer Person"@de;
 	rdfs:comment """Action by a person bringing something into existence."""@en;
-	rdfs:subClassOf human:Action, event:Creating #, [
-#		a owl:Restriction; owl:onProperty agent:hasCreator; owl:someValuesFrom agent:Creator], [
-#		a owl:Restriction; owl:onProperty event:hasStartDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty event:hasEndDate; owl:minCardinality "0"^^xsd:nonNegativeInteger]
-		.
+	rdfs:subClassOf human:Action, event:Creating.
 
 human:Creation
 	a owl:Class;
 	rdfs:label "person's creation"@en, "Kreation einer Person"@de;
 	rdfs:comment """Something created by a person."""@en;
 	rdfs:subClassOf event:Output, cidoc:E71_Man-Made_Thing, [
-#		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-#		a owl:Restriction; owl:onProperty text:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasPreferredName; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasIdentifier; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasTitle; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasAlias; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
+		a owl:Restriction; owl:onProperty text:hasDescription; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreating; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreatingValue; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
 		a owl:Restriction; owl:onProperty human:hasCreationDate; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
@@ -473,15 +470,6 @@ human:isMemberOfGroupValue
 	knora-base:subjectClassConstraint human:Person;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 
-human:hasCreationDate
-	a owl:ObjectProperty;
-	rdfs:label "has creation date"@en, "hat Kreationsdatum"@de;
-	rdfs:comment """Relating a creation by a person to a date it was created on."""@en;
-	rdfs:subPropertyOf knora-base:hasValue;
-	knora-base:subjectClassConstraint human:Creation; # owl:propertyChainAxiom (event:isOutputOf event:hasEndDate)
-	knora-base:objectClassConstraint knora-base:DateValue;
-	salsah-gui:guiElement salsah-gui:Date.
-
 human:hasCreating
 	a owl:ObjectProperty;
 	rdfs:label "has creating"@en, "hat Kreierung"@de;
@@ -497,6 +485,15 @@ human:hasCreatingValue
 	rdfs:subPropertyOf event:isOutputOfValue;
 	knora-base:subjectClassConstraint human:Creation;
 	knora-base:objectClassConstraint knora-base:LinkValue.
+
+human:hasCreationDate
+	a owl:ObjectProperty;
+	rdfs:label "has creation date"@en, "hat Kreationsdatum"@de;
+	rdfs:comment """Relating a creation by a person to a date it was created on."""@en;
+	rdfs:subPropertyOf knora-base:hasValue;
+	knora-base:subjectClassConstraint human:Creation; # owl:propertyChainAxiom (event:isOutputOf event:hasEndDate)
+	knora-base:objectClassConstraint knora-base:DateValue;
+	salsah-gui:guiElement salsah-gui:Date.
 
 human:hasModificationDate
 	a owl:ObjectProperty;

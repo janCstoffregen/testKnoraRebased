@@ -135,7 +135,7 @@ concept:Fiction
 
 concept:NonFiction
 	a owl:Class;
-	rdfs:label "Non-fiction"@en, "sachliche Expression"@de;
+	rdfs:label "non-fiction"@en, "sachliche Expression"@de;
 	rdfs:comment """Expression having content based on fact."""@en;
 	rdfs:subClassOf concept:Expression.
 

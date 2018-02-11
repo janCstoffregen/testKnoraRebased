@@ -17,10 +17,10 @@
 @prefix salsah-gui: <http://www.knora.org/ontology/salsah-gui#>.
 @prefix litera: <http://www.knora.org/ontology/literature#>.
 
-<http://www.knora.org/ontology/concept>
+<http://www.knora.org/ontology/literature>
 	a owl:Ontology;
-	dct:title "An ontology about concept"@en;
-	dct:description """Formal description of concept, its general subclasses, related classes and properties."""@en;
+	dct:title "An ontology about literature"@en;
+	dct:description """Formal description of literature, its general subclasses, related classes and properties."""@en;
 	dct:creator "Hans Cools, software developer, NIE-INE, Basel University, Switzerland"@en;
 	dct:contributor "Roberta Padlina, NIE-INE, Basel University, Switzerland"@en;
 	dct:publisher "Basel University, Switzerland"@en.
@@ -110,8 +110,8 @@ litera:hasPoet
 	a owl:ObjectProperty;
 	rdfs:label "has poet"@en, "hat Dichter"@de;
 	rdfs:comment """Relating a poem to a person who authored it."""@en;
-	rdfs:domain litera:Poem;
-	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom litera:Poet]];
+#	rdfs:domain litera:Poem;
+#	rdfs:range [rdfs:subClassOf human:Person, [a owl:Restriction; owl:onProperty event:hasRole; owl:someValuesFrom litera:Poet]];
 	rdfs:subPropertyOf text:hasAuthor;
 	knora-base:subjectClassConstraint litera:Poem;
 	knora-base:objectClassConstraint human:Person.

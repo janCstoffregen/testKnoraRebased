@@ -597,7 +597,7 @@ Die Internetpublikation macht das digitalisierte Korpus dieser Frühdrucke  durc
 
 <http://rdfh.ch/projects/publishing> a knora-base:knoraProject;
 	knora-base:projectShortname "Publishing"^^xsd:string;
-	knora-base:projectLongname "An ontology about Publishing"^^xsd:string;
+	knora-base:projectLongname "An ontology about publishing"^^xsd:string;
 	knora-base:projectDescription "Formal description of Publishing, its general subclasses, related classes and properties"^^xsd:string;
 	knora-base:projectOntology <http://www.knora.org/ontology/publishing>;
 	knora-base:status "true"^^xsd:boolean;

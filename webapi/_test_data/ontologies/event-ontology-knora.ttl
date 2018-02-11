@@ -115,10 +115,7 @@ event:Creating
 	a owl:Class;
 	rdfs:label "creating"@en, "Kreierung"@de;
 	rdfs:comment """Bringing into existence."""@en;
-	rdfs:subClassOf event:Action
-#		, [
-#		a owl:Restriction; owl:onProperty agent:hasAgent; owl:someValuesFrom agent:Creator]
-		.
+	rdfs:subClassOf event:Action.
 
 #
 # PROPERTIES

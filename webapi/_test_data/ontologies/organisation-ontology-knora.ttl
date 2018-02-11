@@ -51,6 +51,13 @@ org:Administration
 	rdfs:comment """Organisation administering a group of people on any level, e.g. international, national, regional or city level."""@en;
 	rdfs:subClassOf org:Organisation.
 
+org:PoliticalOrganization
+	a owl:Class;
+	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
+	rdfs:label "political organization"@en, "politische Organisation"@de;
+	rdfs:comment """."""@en; #*
+	rdfs:subClassOf org:Organisation. #*
+
 org:Company
 	a owl:Class;
 	rdfs:isDefinedBy <http://www.knora.org/ontology/organisation#>;
