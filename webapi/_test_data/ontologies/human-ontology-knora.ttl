@@ -189,32 +189,37 @@ human:Machine
 human:CreationVersion
 	a owl:Class;
 	rdfs:label "creation version"@en, "Version einer Kreation"@de;
-	rdfs:comment """Person's creation differing in certain respects - e.g. time, extent, language - from onther e.g. earlier or standard one."""@en;
+	rdfs:comment """Person's creation differing in certain respects - e.g. time, extent - from onther e.g. earlier or standard one."""@en;
 	rdfs:subClassOf human:Creation.
 
 # version: considering:
 # time: first, final, earlier, later
 # extent: standard, reduced, extended
-# language: lang:PersonTranslation
 # etc.
 
 human:FirstVersion
 	a owl:Class;
-	rdfs:label "first version"@en, "Endfassung"@de; #* Endversion
+	rdfs:label "first version"@en, "Erstversion"@de;
 	rdfs:comment """Person's creation as first version."""@en;
 	rdfs:subClassOf human:CreationVersion.
 
 human:FinalVersion
 	a owl:Class;
-	rdfs:label "final version"@en, "Endfassung"@de; #* Endversion
+	rdfs:label "final version"@en, "Endversion"@de;
 	rdfs:comment """Person's creation as last version."""@en;
 	rdfs:subClassOf human:CreationVersion.
 
 human:IntendedFinalVersion
 	a owl:Class;
-	rdfs:label "intended final version"@en, "beabsichtigte Endfassung"@de; #* Endversion
+	rdfs:label "intended final version"@en, "beabsichtigte Endversion"@de;
 	rdfs:comment """Person's creation as intended last version, e.g. of a development."""@en;
 	rdfs:subClassOf human:FinalVersion.
+
+human:CreationDerivative
+	a owl:Class;
+	rdfs:label "creation derivative"@en, "Derivat einer Kreation"@de;
+	rdfs:comment """Derivative of a person's creation, e.g. a translation."""@en;
+	rdfs:subClassOf human:Creation.
 
 human:Occupation
 	a owl:Class;

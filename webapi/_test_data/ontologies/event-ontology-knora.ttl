@@ -145,7 +145,7 @@ event:hasName
 	rdfs:comment """Relating an event to its name."""@en;
 	rdfs:domain event:Event;
 	rdfs:range rdfs:Literal;
-	rdfs:subPropertyOf text:hasName, knora-base:hasValue;
+	rdfs:subPropertyOf text:hasName;
 	knora-base:subjectClassConstraint event:Event;
 	knora-base:objectClassConstraint knora-base:TextValue;
 	salsah-gui:guiElement salsah-gui:Date.
@@ -153,7 +153,9 @@ event:hasName
 event:hasEvent
 	a owl:ObjectProperty;
 	rdfs:label "has event"@en, "hat Ereignis"@de;
-	rdfs:comment """Relating someone or something, eg. an organisation, event, procedure to an event."""@en;
+	rdfs:comment """Relating someone or something - eg. an organisation, event, procedure - to an event."""@en;
+	rdfs:domain event:Event;
+	rdfs:range rdfs:Literal;
 	rdfs:subPropertyOf knora-base:hasLinkTo;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint event:Event.
@@ -161,8 +163,24 @@ event:hasEvent
 event:hasEventValue
 	a owl:ObjectProperty;
 	rdfs:label "has event - statement"@en, "hat Ereignis - Festlegung"@de;
-	rdfs:comment """Relating a resource to a reification statement of the relation between the resource and an event."""@en;
+	rdfs:comment """Relating someone or something to a reification statement of the relation between that someone or something and an event."""@en;
 	rdfs:subPropertyOf knora-base:hasLinkToValue;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint knora-base:LinkValue.
+
+event:hasExistence
+	a owl:ObjectProperty;
+	rdfs:label "has existence"@en, "hat Existenz"@de;
+	rdfs:comment """Relating someone or something to her/his/its existence."""@en;
+	rdfs:subPropertyOf event:hasEvent;
+	knora-base:subjectClassConstraint knora-base:Resource;
+	knora-base:objectClassConstraint event:Existence.
+
+event:hasExistenceValue
+	a owl:ObjectProperty;
+	rdfs:label "has existence - statement"@en, "hat Existenz - Festlegung"@de;
+	rdfs:comment """Relating someone or something to a reification statement of the relation between that someone or something and her/his/its existence."""@en;
+	rdfs:subPropertyOf event:hasEventValue;
 	knora-base:subjectClassConstraint knora-base:Resource;
 	knora-base:objectClassConstraint knora-base:LinkValue.
 

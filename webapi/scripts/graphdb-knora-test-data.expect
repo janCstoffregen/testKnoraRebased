@@ -90,6 +90,8 @@ send "load ../_test_data/ontologies/literature-ontology-knora.ttl into http://ww
 expect $prompt
 send "load ../_test_data/ontologies/teaching-ontology-knora.ttl into http://www.knora.org/ontology/teaching .\r"
 expect $prompt
+send "load ../_test_data/ontologies/political-geography-ontology-knora.ttl into http://www.knora.org/ontology/political-geography .\r"
+expect $prompt
 send "close .\r"
 expect $prompt
 send "exit .\r"

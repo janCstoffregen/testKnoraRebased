@@ -89,7 +89,7 @@ lang:PersonTranslation
 	a owl:Class;
 	rdfs:label "person's translation"@en, "Übersetzung einer Person"@de;
 	rdfs:comment """Translation done by a person."""@en;
-	rdfs:subClassOf human:CreationVersion.
+	rdfs:subClassOf human:CreationDerivative.
 
 lang:MachineTranslation
 	a owl:Class;

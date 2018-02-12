@@ -106,11 +106,11 @@ text:Derivative
 	a owl:Class;
 	rdfs:label "text derivative"@en, "abgeleitete Text"@de;
 	rdfs:comment """Text expression derived from another text expression."""@en;
-	rdfs:subClassOf text:Expression.
+	rdfs:subClassOf text:Expression, human:CreationDerivative.
 
-text:Edition
+text:Edition # can be on >= 1 carrier
 	a owl:Class;
-	rdfs:label "text edition"@en, "Text Edition"@de; # Lesetext subClassOf
+	rdfs:label "text edition"@en, "Text-Edition"@de; # Lesetext subClassOf
 	rdfs:comment """Changed form of a text expression as a result of editing."""@en;
 	rdfs:subClassOf text:Derivative.
 
@@ -306,7 +306,16 @@ text:DiplomaticTranscription
 	rdfs:comment """Transcription of a text with diacritical signs indicating visual textual properties to describe the textual state."""@en;
 	rdfs:subClassOf text:Derivative, [
 		a owl:Restriction; owl:onProperty text:isDiplomaticTranscriptionOfTextOnPage; owl:minCardinality "0"^^xsd:nonNegativeInteger], [
-		a owl:Restriction; owl:onProperty text:isDiplomaticTranscriptionOfTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger].
+		a owl:Restriction; owl:onProperty text:isDiplomaticTranscriptionOfTextOnPageValue; owl:minCardinality "0"^^xsd:nonNegativeInteger]#, [
+#		a owl:Restriction; owl:onProperty infocar:isOnCarrier; owl:cardinality "1"^^xsd:nonNegativeInteger], [
+#		a owl:Restriction; owl:onProperty infocar:isOnCarrierValue; owl:cardinality "1"^^xsd:nonNegativeInteger]
+		.
+
+text:CriticalEdition
+	a owl:Class;
+	rdfs:label "critical text edition"@en, "kritische Text-Edition"@de;
+	rdfs:comment """."""@en; #* scientist adding interpretation of the text expression
+	rdfs:subClassOf text:Edition.
 
 text:Development
 	a owl:Class;

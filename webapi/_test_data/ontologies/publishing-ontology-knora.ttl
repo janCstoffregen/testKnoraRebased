@@ -111,6 +111,14 @@ publish:PolyAuthorPublication
 #	rdfs:comment """Expression published together with other expressions from other authors."""@en;
 #	rdfs:subClassOf publish:Publication.
 
+text:FirstPublication
+	a owl:Class;
+	rdfs:label "first publication"@en, "Erstausgabe"@de; # first edition ?
+	rdfs:comment """Earliest publication of a tex expression."""@en;
+	rdfs:subClassOf publish:Publication.
+
+# human:FirstVersion
+
 publish:Magazine
 	a owl:Class;
 	rdfs:label "magazine"@en, "Zeitschrift"@de;
